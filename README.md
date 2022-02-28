@@ -3,4 +3,4 @@ This project is inspired by the world-famous Wolfenstein 3D game, which was the 
 
 Project team:
 me (intra nickname hmeriann) and
-Artem Novikov (intra nickname jbasmati)
+Artem Novikov (intra nickname [jbasmati](https://github.com/Archi669))
