@@ -13,7 +13,11 @@
 # include "mlx.h"
 # include "get_next_line.h"
 
+typedef struct s_p
+{
+    
 
+}t_p;
 
 
 
