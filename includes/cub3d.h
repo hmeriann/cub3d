@@ -15,7 +15,8 @@
 
 typedef struct s_p
 {
-
+    int     argc;
+    char    **argv;
 
 }t_p;
 
