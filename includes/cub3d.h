@@ -9,13 +9,13 @@
 # include <fcntl.h>
 # include <sys/errno.h>
 
-# include "libft.h"
-# include "mlx.h"
-# include "get_next_line.h"
+// # include "mlx.h"
+// # include "get_next_line.h"
+# include "./libft/libft.h"
 
 typedef struct s_p
 {
-    
+
 
 }t_p;
 
