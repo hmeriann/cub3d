@@ -6,16 +6,11 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 21:56:43 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/05 17:15:27 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/05 17:22:54 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-void	parser(void)
-{
-	
-}
 
 t_p *ft_init(t_p *p, int argc, char **argv)
 {
@@ -35,7 +30,7 @@ int main(int argc, char **argv)
 	t_p p;
 
 	p = *ft_init(&p, argc, argv);
-	parser();
+	ft_parser(&p, argc, argv);
 	// if что-то там....  
 	s_mode(&p);
 

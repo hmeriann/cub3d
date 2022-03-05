@@ -16,6 +16,7 @@ CC		= cc
 RM		= rm -f
 
 SRCS	= ./src/main.c \
+		./src/parser/ft_parser.c \
 		# ./src/logic/logic.c \
 		
 OBJS	= ${SRCS:.c=.o}
