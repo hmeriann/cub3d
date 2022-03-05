@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 21:56:43 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/02 22:56:37 by jbasmati         ###   ########.fr       */
+/*   Updated: 2022/03/05 17:15:27 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void    parser(void)
+void	parser(void)
 {
 	
 }
