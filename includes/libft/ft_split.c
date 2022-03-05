@@ -5,126 +5,86 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/05 16:46:14 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/05 16:20:22 by zu               ###   ########.fr       */
+/*   Created: 2021/05/12 17:19:20 by hmeriann          #+#    #+#             */
+/*   Updated: 2021/12/05 01:46:38 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
-typedef struct s_list
+char	**ft_mstrfree(char **darr)
 {
-	char	**str;
-	int		char_count;
-}t_list;
-
-int	ft_word_counter(char const *s, char c)
-{
-	int	i;
-	int	word_counter;
+	int		i;
 
 	i = 0;
-	word_counter = 0;
-	if (s)
+	while (darr[i])
 	{
-		while (s[i])
-		{
-			if (s[i] == c)
-				i++;
-			else
-			{
-				word_counter++;
-				while (s[i] && s[i] != c)
-					i++;
-			}
-		}
-		return (word_counter);
+		free(darr[i]);
+		i++;
 	}
-	return (0);
+	free(darr);
+	return (NULL);
 }
 
-char	*ft_mem_for_str_j(t_list *list, int j)
+int	ft_get_str_cnt(char const *s, char c)
 {
-	list->str[j] = (char *)malloc(list->char_count + 1);
-	if (list->str[j] == NULL)
-	{
-		j--;
-		while (j >= 0)
-		{
-			free(list->str[j]);
-			j--;
-		}
-		free(list->str);
-		return (NULL);
-	}
-	return (list->str[j]);
-}
+	int		str_cnt;
+	int		i;
 
-char	*str_j_filling(t_list *list, int j, char const *s, int i)
-{	
-	int	k;
-
-	k = 0;
-	while (list->char_count > 0)
-	{
-		list->str[j][k] = s[i - list->char_count];
-		list->char_count--;
-		k++;
-	}
-	list->str[j][k] = '\0';
-	k = 0;
-	return (list->str[j]);
-}
-
-char	**ft_str_filling(char const *s, int i, char c, t_list *list)
-{
-	int	j;
-
-	list->char_count = 0;
-	j = 0;
+	str_cnt = 0;
+	i = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		while (s[i] == c && s[i] != '\0')
 			i++;
-		else
-		{
-			while (s[i] && s[i] != c)
-			{
-				list->char_count++;
-				i++;
-			}
-			list->str[j] = ft_mem_for_str_j(list, j);
-			list->str[j] = str_j_filling(list, j, s, i);
-			j++;
-			list->char_count = 0;
-		}
+		if (s[i] != c && s[i] != '\0')
+			str_cnt++;
+		while (s[i] != c && s[i] != '\0')
+			i++;
 	}
-	list->str[j] = NULL;
-	return (list->str);
+	return (str_cnt);
+}
+
+size_t	ft_get_str(char **nxt_str,	char c)
+{
+	size_t	nxt_str_len;
+
+	nxt_str_len = 0;
+	while (**nxt_str == c && **nxt_str != '\0')
+		(*nxt_str)++;
+	while (**nxt_str != c && **nxt_str != '\0')
+	{
+		nxt_str_len += 1;
+		(*nxt_str)++;
+	}
+	return (nxt_str_len);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	t_list	list;
+	char	**darr;
 	int		i;
-	int		word_count;
+	char	*nxt_str;
+	char	*str_buf;
 
-	word_count = 0;
-	list.str = NULL;
 	i = 0;
-	if (s)
+	nxt_str = (char *)s;
+	if (!s)
+		return (NULL);
+	darr = (char **)malloc(sizeof(char *) * (ft_get_str_cnt(s, c) + 1));
+	if (!darr)
+		return (NULL);
+	while (i < ft_get_str_cnt(s, c) && nxt_str)
 	{
-		word_count = ft_word_counter(s, c);
-		if (word_count)
-		{
-			list.str = (char **)malloc(sizeof(char *) * (word_count + 1));
-			if (list.str == NULL)
-				return (NULL);
-			list.str = ft_str_filling(s, i, c, &list);
-			return (list.str);
-		}
+		while (*nxt_str == c)
+			nxt_str++;
+		str_buf = nxt_str;
+		darr[i] = ft_substr(nxt_str, 0, ft_get_str(&str_buf, c));
+		nxt_str = str_buf;
+		if (!darr[i])
+			return (ft_mstrfree(darr));
+		i++;
 	}
-	return (NULL);
+	darr[i] = NULL;
+	return (darr);
 }

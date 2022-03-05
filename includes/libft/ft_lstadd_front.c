@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 17:18:27 by hmeriann          #+#    #+#             */
-/*   Updated: 2022/03/05 16:21:26 by zu               ###   ########.fr       */
+/*   Updated: 2021/05/12 17:19:46 by hmeriann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 /*добавляет элемент в начало списка: говорим, что new встает перед *lst,
 а указатель на *lst теперь указываетс на new */
 
-void	ft_lstadd_front(t_llist **lst, t_llist *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	new -> next = *lst;
-	new->prev = NULL;
 	*lst = new;
 }

@@ -5,35 +5,49 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/05 16:44:38 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/05 16:21:58 by zu               ###   ########.fr       */
+/*   Created: 2021/02/09 10:56:32 by hmeriann          #+#    #+#             */
+/*   Updated: 2021/12/05 01:46:31 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long long int	ft_atoi(const char *str)
+#include "libft.h"
+
+int	max_min_handling(long long res, int sign)
+{
+	if (res > 2147483647)
+	{
+		if (sign == 0)
+			return (-1);
+		return (0);
+	}
+	return (1);
+}
+
+int	ft_atoi(const char *str)
 {
 	int			i;
-	long long	res;	
-	int			minus;
+	int			sign;
+	long long	res;
 
 	i = 0;
+	sign = 0;
 	res = 0;
-	minus = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\v' || str[i] == '\f' \
-			|| str[i] == '\r' || str[i] == '\n' || str[i] == '\f')
+	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
 		i++;
-	if (str[i] == '+' || str[i] == '-')
+	if ((str[i] == '-' || str[i] == '+') && ft_isdigit(str[i + 1]))
+		if (str[i++] == '-')
+			sign = 1;
+	while (str[i] != '\0')
 	{
-		if (str[i] == '-')
-			minus = 1;
-		i++;
-	}	
-	while (str[i] >= '0' && str[i] <= '9')
-	{		
-		res = res * 10 + (str[i] - '0');
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			if (max_min_handling(res, sign) != 1)
+				return (max_min_handling(res, sign));
+			res = 10 * res + (str[i] - '0');
+		}
 		i++;
 	}
-	if (minus)
-		res = res * (-1);
+	if (sign == 1)
+		res = -res;
 	return (res);
 }

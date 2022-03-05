@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/05 16:46:18 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/05 16:20:15 by zu               ###   ########.fr       */
+/*   Created: 2021/04/27 16:38:09 by hmeriann          #+#    #+#             */
+/*   Updated: 2021/04/27 16:48:52 by hmeriann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *s1)
 {
-	char	*res;
-	int		len;
-	int		i;
+	char	*dst;
+	size_t	dstsize;
+	size_t	i;
 
 	i = 0;
-	if (s == NULL)
-		len = 0;
-	else
-		len = ft_strlen(s);
-	res = (char *)malloc(sizeof(const char) * (len + 1));
-	if (res == NULL)
-		return (res);
-	while (s[i])
+	dstsize = (ft_strlen(s1) + 1) * (sizeof(const char));
+	dst = malloc(dstsize);
+	if (dst == NULL)
+		return (NULL);
+	while (i < dstsize)
 	{
-		res[i] = s[i];
+		dst[i] = s1[i];
 		i++;
 	}
-	res[i] = '\0';
-	return (res);
+	return ((char *)dst);
 }

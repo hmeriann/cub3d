@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 17:18:48 by hmeriann          #+#    #+#             */
-/*   Updated: 2022/03/05 16:21:13 by zu               ###   ########.fr       */
+/*   Updated: 2021/05/12 17:19:46 by hmeriann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 /* передвигает начало списка вниз по списку и находит последний элемент списка*/
 
-t_llist	*ft_lstlast(t_llist *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_llist	*tmp;
+	t_list	*tmp;
 
 	if (lst == NULL)
 		return (NULL);

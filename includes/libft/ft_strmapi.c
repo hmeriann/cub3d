@@ -3,32 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/05 16:46:28 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/05 16:19:51 by zu               ###   ########.fr       */
+/*   Created: 2021/05/12 17:17:20 by hmeriann          #+#    #+#             */
+/*   Updated: 2021/05/12 17:17:28 by hmeriann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+/* применяет функцию f к каждому символу строки, возвращает полученную в
+результате новую строку*/
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		i;
-	char	*res;
+	char			*result;
+	unsigned int	i;
 
-	i = 0;
 	if (!s || !f)
 		return (NULL);
-	res = (char *)malloc(ft_strlen(s) + 1);
-	if (!res)
+	result = (char *)malloc((sizeof(char)) * (ft_strlen(s) + 1));
+	if (result == NULL)
 		return (NULL);
-	while (s[i])
+	i = 0;
+	while (s[i] != '\0')
 	{
-		res[i] = f(i, s[i]);
+		result[i] = f(i, s[i]);
 		i++;
 	}
-	res[i] = '\0';
-	return (res);
+	result[i] = '\0';
+	return (result);
 }

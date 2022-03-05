@@ -3,115 +3,66 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/05 16:46:36 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/05 16:19:38 by zu               ###   ########.fr       */
+/*   Created: 2021/05/12 17:17:42 by hmeriann          #+#    #+#             */
+/*   Updated: 2021/05/14 12:53:32 by hmeriann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
 
-typedef struct s_list
+static int	first_index(char const *set, char c)
 {
-	int	k;
 	int	i;
-	int	flag;
-	int	j;
-	int	len;
-}t_list;
 
-int	start_trim_count(char const *s1, char const *set)
-{
-	t_list	list;
-
-	list.i = 0;
-	list.k = 0;
-	while (s1[list.i])
+	i = 0;
+	while (set[i] != '\0')
 	{
-		list.flag = 0;
-		list.j = 0;
-		while (set[list.j])
-		{
-			if (s1[list.i] == set[list.j])
-			{
-				list.k++;
-				list.flag = 1;
-				list.j = ft_strlen(set);
-			}
-			else
-				list.j++;
-		}
-		if (list.flag == 1)
-			list.i++;
-		else
-			list.i = ft_strlen(s1);
+		if (set[i] == c)
+			return (i);
+		i++;
 	}
-	return (list.k);
+	return (-1);
 }
 
-int	end_trim_count(char const *s1, char const *set)
+static int	left_bound_finder(char const *s1, char const *set, int left)
 {
-	t_list	list;
-
-	list.len = ft_strlen(s1);
-	list.k = 0;
-	while (s1[list.len - 1])
-	{
-		list.flag = 0;
-		list.j = 0;
-		while (set[list.j])
-		{
-			if (s1[list.len - 1] == set[list.j])
-			{
-				list.k++;
-				list.flag = 1;
-				list.j = ft_strlen(set);
-			}				
-			else
-				list.j++;
-		}
-		if (list.flag == 1)
-			list.len--;
-		else
-			list.len = ft_strlen(s1) + 1;
-	}
-	return (list.k);
+	left = 0;
+	while (s1[left] != '\0' && first_index(set, s1[left]) != -1)
+		left++;
+	return (left);
 }
 
-char	*res_eol(char	*res)
+static int	right_bound_finder(char const *s1, char const *set, int right)
 {
-	res = (char *)malloc(1);
-	if (res == NULL)
-		return (NULL);
-	res[0] = '\0';
-	return (res);
+	right = ft_strlen(s1) - 1;
+	while (right > 0 && first_index(set, s1[right]) != -1)
+		right--;
+	return (right);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char			*res;
-	unsigned int	i;
-	unsigned int	start_count;
-	unsigned int	end_count;
-	unsigned int	res_len;
+	char	*result;
+	int		len_substr;
+	int		left;
+	int		right;
 
-	res = "";
-	i = 0;
-	if (!s1 || !set)
+	if (s1 == NULL || set == NULL)
 		return (NULL);
-	start_count = start_trim_count(s1, set);
-	end_count = end_trim_count(s1, set);
-	if (start_count == ft_strlen(s1) || end_count == ft_strlen(s1))
-		return (res_eol(res));
-	res_len = ft_strlen(s1) - start_count - end_count;
-	res = (char *)malloc(res_len + 1);
-	if (res == NULL)
+	if (*set == '\0')
+		return (result = ft_strdup(s1));
+	left = 0;
+	right = 0;
+	left = left_bound_finder(s1, set, left);
+	right = right_bound_finder(s1, set, right);
+	if (left > right)
+		return (ft_strdup(""));
+	len_substr = right - left + 1;
+	result = malloc(sizeof(char) * (len_substr + 1));
+	if (result == NULL)
 		return (NULL);
-	while (s1[start_count] && start_count < res_len + start_trim_count(s1, set))
-		res[i++] = s1[start_count++];
-	res[i] = '\0';
-	return (res);
+	result = ft_substr(s1, left, len_substr);
+	return (result);
 }

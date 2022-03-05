@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 17:18:21 by hmeriann          #+#    #+#             */
-/*   Updated: 2022/03/05 16:21:29 by zu               ###   ########.fr       */
+/*   Updated: 2021/05/12 18:29:48 by hmeriann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 /* получает указатель на указатель на начало списка
 и указатель на новый элемент, добавляет его в конец списка */
 
-void	ft_lstadd_back(t_llist **lst, t_llist *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_llist	*last;
+	t_list	*last;
 
 	if (new == NULL)
 		return ;
@@ -26,6 +26,5 @@ void	ft_lstadd_back(t_llist **lst, t_llist *new)
 	{
 		last = ft_lstlast(*lst);
 		last -> next = new;
-		new->prev = last;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 17:18:34 by hmeriann          #+#    #+#             */
-/*   Updated: 2022/03/05 16:21:23 by zu               ###   ########.fr       */
+/*   Updated: 2021/05/12 17:19:46 by hmeriann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 /*удаляет указанный элемент и всех его последователей,
 пока не станет указывать на NULL*/
 
-void	ft_lstclear(t_llist **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_llist	*tmp;
+	t_list	*tmp;
 
 	if (lst)
 	{
