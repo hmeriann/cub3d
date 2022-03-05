@@ -3,22 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/27 13:45:20 by hmeriann          #+#    #+#             */
-/*   Updated: 2021/04/27 16:09:35 by hmeriann         ###   ########.fr       */
+/*   Created: 2021/09/05 16:44:54 by jbasmati          #+#    #+#             */
+/*   Updated: 2022/03/05 16:21:51 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
+#include <stdlib.h>
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char	*k;
+	char	*res;
+	size_t	i;
 
-	k = malloc(count * size);
-	if (NULL == k)
-		return (NULL);
-	ft_bzero((char *)k, count * size);
-	return ((char *)k);
+	i = 0;
+	res = (char *)malloc(nmemb * size);
+	if (res == NULL)
+		return (res);
+	while (i < nmemb * size)
+	{
+		res[i] = '\0';
+		i++;
+	}
+	return ((void *)res);
 }

@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 17:18:48 by hmeriann          #+#    #+#             */
-/*   Updated: 2022/03/05 16:21:13 by zu               ###   ########.fr       */
+/*   Created: 2022/01/17 19:11:42 by jbasmati          #+#    #+#             */
+/*   Updated: 2022/02/24 23:46:13 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-/* передвигает начало списка вниз по списку и находит последний элемент списка*/
-
-t_llist	*ft_lstlast(t_llist *lst)
+char	*ft_strcat(char *dst, char *src)
 {
-	t_llist	*tmp;
+	int	i;
+	int	j;
 
-	if (lst == NULL)
-		return (NULL);
-	tmp = lst;
-	while (tmp -> next)
-		tmp = tmp -> next;
-	return (tmp);
+	i = 0;
+	j = 0;
+	while (dst[i] != '\0')
+		i++;
+	while (src[j] != '\0')
+	{
+		dst[i + j] = src[j];
+		j++;
+	}
+	dst[i + j] = '\0';
+	return (dst);
 }

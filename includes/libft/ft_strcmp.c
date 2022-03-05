@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 17:18:48 by hmeriann          #+#    #+#             */
-/*   Updated: 2022/03/05 16:21:13 by zu               ###   ########.fr       */
+/*   Created: 2021/04/20 19:44:02 by jbasmati          #+#    #+#             */
+/*   Updated: 2022/01/20 10:24:32 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-/* передвигает начало списка вниз по списку и находит последний элемент списка*/
+#include <stddef.h>
 
-t_llist	*ft_lstlast(t_llist *lst)
+int	ft_strcmp(const char *s1, const char *s2)
+
 {
-	t_llist	*tmp;
+	int	i;
 
-	if (lst == NULL)
-		return (NULL);
-	tmp = lst;
-	while (tmp -> next)
-		tmp = tmp -> next;
-	return (tmp);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] && s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

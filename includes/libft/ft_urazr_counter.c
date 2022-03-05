@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_urazr_counter.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/05 16:46:04 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/05 16:20:35 by zu               ###   ########.fr       */
+/*   Created: 2021/09/05 16:46:43 by jbasmati          #+#    #+#             */
+/*   Updated: 2021/09/05 16:46:44 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putendl_fd(char *s, int fd)
+int	ft_urazr_counter(unsigned int n)
 {
-	int		i;
-	char	new_line;
+	long long int	t;
+	int				razr;
 
-	i = 0;
-	new_line = '\n';
-	if (s)
-	{
-		while (s[i])
-		{
-			write(fd, &s[i], 1);
-			i++;
-		}
-		write(fd, &new_line, 1);
+	t = 1;
+	razr = 0;
+	if (n < 0)
+		n *= -1;
+	if (n == 0)
+		razr = 1;
+	while (n / t >= 1)
+	{		
+		t = t * 10;
+		razr++;
 	}
+	return (razr);
 }

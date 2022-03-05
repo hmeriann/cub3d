@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 17:18:52 by hmeriann          #+#    #+#             */
-/*   Updated: 2021/05/12 17:19:46 by hmeriann         ###   ########.fr       */
+/*   Updated: 2022/03/05 16:21:10 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 Из результата применения функции создает новый список.
 Применяет функцию del, если необходимо*/
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_llist	*ft_lstmap(t_llist *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*first_element;
-	t_list	*new_lst;
+	t_llist	*first_element;
+	t_llist	*new_lst;
 
 	if (!f)
 		return (NULL);

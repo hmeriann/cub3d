@@ -3,31 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/28 14:24:30 by hmeriann          #+#    #+#             */
-/*   Updated: 2021/04/28 14:58:37 by hmeriann         ###   ########.fr       */
+/*   Created: 2021/09/05 16:46:06 by jbasmati          #+#    #+#             */
+/*   Updated: 2022/03/05 16:20:29 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <stddef.h>
+#include <unistd.h>
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int		i;
+	int		razr;
+	int		numb;
+	char	res;
 
-	i = n;
-	if (i == -2147483648)
+	if (n == 2147483647)
+		ft_putstr_fd("2147483647", fd);
+	else if (n == -2147483648)
 		ft_putstr_fd("-2147483648", fd);
 	else
 	{
-		if (i < 0 && i > -2147483648)
+		if (n < 0)
 		{
-			ft_putchar_fd('-', fd);
-			i *= -1;
+			write(fd, "-", 1);
+			n *= -1;
 		}
-		if (i > 9)
-			ft_putnbr_fd(i / 10, fd);
-		ft_putchar_fd(i % 10 + '0', fd);
+		razr = ft_razr_counter(n);
+		while (razr > 0)
+		{
+			numb = n / ft_pow(razr);
+			n = n - numb * ft_pow(razr);
+			res = numb + '0';
+			write(fd, &res, 1);
+			razr--;
+		}
 	}
 }

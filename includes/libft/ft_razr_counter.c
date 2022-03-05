@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_razr_counter.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/05 16:46:04 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/05 16:20:35 by zu               ###   ########.fr       */
+/*   Created: 2021/09/05 16:46:11 by jbasmati          #+#    #+#             */
+/*   Updated: 2021/09/05 16:46:12 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_razr_counter(long long int n)
 {
-	int		i;
-	char	new_line;
+	long long int	t;
+	int				razr;
+	long long int	n1;
 
-	i = 0;
-	new_line = '\n';
-	if (s)
+	n1 = n;
+	t = 1;
+	razr = 0;
+	if (n1 < 0)
+		n1 *= -1;
+	if (n1 == 0)
+		razr = 1;
+	while (n1 / t >= 1)
 	{
-		while (s[i])
-		{
-			write(fd, &s[i], 1);
-			i++;
-		}
-		write(fd, &new_line, 1);
+		t = t * 10;
+		razr++;
 	}
+	return (razr);
 }

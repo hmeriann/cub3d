@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/05 16:45:21 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/05 16:21:32 by zu               ###   ########.fr       */
+/*   Created: 2021/09/05 16:46:46 by jbasmati          #+#    #+#             */
+/*   Updated: 2021/09/05 16:46:47 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 #include <stdio.h>
 #include "libft.h"
 
-char	*str_filling(char *str, int start_symb, int razr, long int n)
+char	*ustr_filling(char *str, int start_symb, int razr, long int n)
 {
-	long long int	numb;
+	long int	numb;
 
 	if (start_symb == 1)
 	{
@@ -37,48 +37,32 @@ char	*str_filling(char *str, int start_symb, int razr, long int n)
 	return (str);
 }
 
-char	*n_int_max_checker(char *res, int n)
+char	*n_uint_max_checker(char *res, unsigned int n)
 {
 	res = (char *)malloc(sizeof(char) * (10 + 1));
 	if (res == 0)
 		return (NULL);
-	res = str_filling(res, 0, 10, n);
+	res = ustr_filling(res, 0, 10, n);
 	return (res);
 }
 
-char	*n_int_min_checker(char *res, int n)
-{
-	res = (char *)malloc(sizeof(char) * (10 + 1));
-	if (res == 0)
-		return (NULL);
-	res = str_filling(res, 1, 10, n);
-	return (res);
-}
-
-char	*ft_itoa(long long int n)
+char	*ft_utoa(unsigned int n)
 {
 	char	*res;
 
 	res = "";
-	if (n == 2147483647)
-		res = n_int_max_checker(res, n);
-	else if (n == -2147483647 - 1)
-		res = n_int_min_checker(res, n);
+	if (n == 4294967295)
+		res = n_uint_max_checker(res, n);
 	else
 	{
 		if (n < 0)
-		{
-			res = (char *)malloc(sizeof(char) * (ft_razr_counter(n) + 1 + 1));
-			if (res == 0)
-				return (NULL);
-			res = str_filling(res, 1, ft_razr_counter(n), n);
-		}
+			res = ft_itoa(4294967295 - n);
 		else
 		{
-			res = (char *)malloc(sizeof(char) * (ft_razr_counter(n) + 1));
+			res = (char *)malloc(sizeof(char) * (ft_urazr_counter(n) + 1));
 			if (res == 0)
 				return (NULL);
-			res = str_filling(res, 0, ft_razr_counter(n), n);
+			res = ustr_filling(res, 0, ft_urazr_counter(n), n);
 		}
 	}
 	return (res);
