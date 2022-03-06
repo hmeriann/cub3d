@@ -17,8 +17,6 @@ typedef struct s_p
 {
     int     argc;
     char    **argv;
-	int		res_x;
-	int		res_y;
 	char	*tex[5];
 	int		floor;
 	int		ceiling;
@@ -40,6 +38,7 @@ typedef struct s_p
 int		ft_digits(char *line);
 int		ft_count_chars(const char *line, char *chars);
 void	ft_free_split(char **arr);
+int		mini_strchr(char *str, char c);
 
 /*parser*/
 int		ft_parser(t_p *p, int argc, char **argv);

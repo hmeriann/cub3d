@@ -6,7 +6,7 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:08:32 by zu                #+#    #+#             */
-/*   Updated: 2022/03/06 15:55:09 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 21:06:58 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_check_holes(t_p *p)
 		j = 1;
 		while (j < p->map_width)
 		{
-			if (ft_strchr("0NSWE", p->map[i][j]) && is_hole(p->map, i, j))
+			if (mini_strchr("0WENS", p->map[i][j]) && is_hole(p->map, i, j))
 				ft_print_error("There is hole in the map\n");
 			j++;
 		}

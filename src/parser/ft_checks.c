@@ -6,7 +6,7 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 18:31:45 by zu                #+#    #+#             */
-/*   Updated: 2022/03/06 14:52:22 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 20:37:58 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ void	ft_parse_line(t_p *p, char *line)
 		ft_get_walls(p, line);
 	else
 		ft_print_error("Invalid settings for the wall testure\n");
-	p->got_sets = (p->ceiling >= 0 && p->floor >= 0 && p->res_x && p->res_x \
-		&& p->tex[0] && p->tex[1] && p->tex[2] && p->tex[3] && p->tex[4]);
+	p->got_sets = (p->ceiling >= 0 && p->floor >= 0 \
+		&& p->tex[0] && p->tex[1] && p->tex[2] && p->tex[3]);
 }

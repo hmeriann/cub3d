@@ -6,7 +6,7 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:12:35 by zu                #+#    #+#             */
-/*   Updated: 2022/03/06 15:50:12 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 21:07:08 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,21 @@ int	ft_count_chars(const char *line, char *chars)
 {
 	int		i;
 	int		count;
-	char	*tmp_line;
 
 	count = 0;
-	tmp_line = ft_strdup(line);
-	while (tmp_line)
+	while (*line)
 	{
 		i = 0;
 		while (chars[i])
 		{
-			if (*tmp_line == chars[i])
+			if (*line == chars[i++])
 			{
 				count++;
 				break ;
 			}
-			i++;
 		}
 		line++;
 	}
-	free(tmp_line);
-	tmp_line = NULL;
 	return (count);
 }
 
@@ -61,4 +56,12 @@ void	ft_free_split(char **arr)
 	while (arr[i])
 		free(arr[i++]);
 	free(arr);
+}
+
+int	mini_strchr(char *str, char c)
+{
+	while (*str)
+		if (*str++ == c)
+			return (1);
+	return (0);
 }
