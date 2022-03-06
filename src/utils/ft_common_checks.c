@@ -6,11 +6,11 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:12:35 by zu                #+#    #+#             */
-/*   Updated: 2022/03/06 21:07:08 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 21:34:39 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cub3d.h"
+#include "include/cub3d.h"
 
 int	ft_digits(char *line)
 {

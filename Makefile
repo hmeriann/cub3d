@@ -1,50 +1,72 @@
-NAME	= cub3d
+NAME		=	cub3D
 
-HEADER	= ./includes/cub3d.h
-
-CFLAGS	= -g -Wall -Wextra -Werror -I.
-INCLUDES = -I includes/libft/libft.a 
-# INCLUDES = -I includes/libft/libft.a -I/usr/local/opt/readline/include
-# INCLUDES = -I./includes -I./libs/libft/ -I /usr/local/include/readline
-
-LIBFT		= ./includes/libft/libft.a
-# RDLINE		= -lreadline -L ~/.brew/opt/readline/lib
-# RDLINE		= -lreadline -L /usr/local/opt/readline/lib
-
-CC		= cc
-
-RM		= rm -f
-
-SRCS	= ./src/main.c \
-		./src/utils/ft_common_checks.c \
-		./src/parser/ft_parser.c \
-		./src/parser/ft_checks.c \
-		./src/parser/ft_print_error.c \
-		./src/parser/ft_gets.c \
-		./src/parser/ft_map.c \
-		# ./src/logic/logic.c \
+SRCS_FILES	= 	main.c \
+				utils/ft_common_checks.c \
+				parser/ft_parser.c \
+				parser/ft_checks.c \
+				parser/ft_print_error.c \
+				parser/ft_gets.c \
+				parser/ft_map.c \
+				logic/window.c \
+				logic/game.c \
+				logic/hooks.c \
+				logic/rays.c \
+				logic/rays_checks.c \
+				logic/get_img.c \
+				logic/get_img_helpers.c \
+				logic/inicialise_structs.c \
+				logic/mooving.c \
+				logic/save.c \
+				logic/utils.c \
+				logic/utils_0.c \
+				logic/utils_1.c \
+				logic/utils_2.c \
+				logic/utils_3.c \
+				logic/utils_4.c \
+				logic/utils_5.c \
 		
 OBJS	= ${SRCS:.c=.o}
 
-$(NAME):	$(OBJS) $(HEADER)
-			@$(MAKE) -C ./includes/libft
-			@$(CC) $(OBJS) $(CFLAGS) includes/libft/libft.a -o $(NAME) $(INCLUDES)
+SRCS_FOLDER	=	src/
 
+HEADER		=	include/cub3d.h
 
-.c.o:	Makefile ./includes/cub3d.h
-		@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+SRCS		= 	$(addprefix $(SRCS_FOLDER),$(SRCS_FILES))
+OBJS		=	$(patsubst %.c,%.o,$(SRCS))
 
-all:	$(NAME)
+INCLUDE		=	-I./include -I./src/libft/ -I./src/mlx/
+
+CC			=	gcc
+CFLAGS		=	-Wall -Wextra -Werror -MMD
+FRAMEWORK	=	-framework OpenGL -framework AppKit
+RM			=	rm -f
+
+LIBC		=	ar rcs
+
+MLX = ./src/mlx/libmlx.a
+LIB = ./src/libft/libft.a
+
+all:		$(NAME)
+
+%.o:		%.c
+			$(CC) $(CFLAGS) $(INCLUDE) -c -g $< -o $@
+		
+$(NAME):	$(OBJS)
+			$(MAKE) -C $(dir $(MLX)) 2> /dev/null
+			$(MAKE) -C $(dir $(LIB))
+			$(CC) $(INCLUDE) $(FRAMEWORK) $(MLX) $(LIB) -o $(NAME) $(OBJS)
 
 clean:
-		@$(RM) $(OBJS)
-		@$(MAKE) fclean -C ./includes/libft
-		# @echo "$(NAME): $(YEL)Object files deleted$(DEF)"
+			$(RM) $(OBJS) $(OBJS:.o=.d)
+			@make -C $(dir $(MLX)) clean
+			@make -C $(dir $(LIB)) clean
 
-fclean:	clean
-		@$(RM) $(NAME)
-		# @echo "$(NAME): $(YEL)Executable file deleted$(DEF)"
+fclean:		clean
+			@make -C $(dir $(LIB)) fclean
+			$(RM) $(MLX)
+			$(RM) $(NAME)
 
-re:		fclean all
+re:			fclean all
 
-.PHONY:	all clean fclean re
+.PHONY:		all clean fclean re
+-include	$(OBJS:.o=.d)

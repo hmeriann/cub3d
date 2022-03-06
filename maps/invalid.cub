@@ -1,16 +1,16 @@
 
 
-NO ./textures/brick.xpm
-SO ./textures/blue.xpm
-WE ./textures/wood.xpm
-EA ./textures/grey.xpm
+NO ./textures/lava.xpm
+SO ./textures/grass.xpm
+WE ./textures/stone.xpm
+EA ./textures/sand.xpm
 
 F 100,1,100
 C 10,10,10
 
 
 111111111111111111111111111
-10000R0000000W000000000001
+10000N0000000W000000000001
 111111111111111111111111111
 
 

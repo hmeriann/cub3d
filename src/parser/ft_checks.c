@@ -6,11 +6,11 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 18:31:45 by zu                #+#    #+#             */
-/*   Updated: 2022/03/06 20:37:58 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 22:04:59 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cub3d.h"
+#include "include/cub3d.h"
 
 void	ft_check_map_line(t_p *p, char *line)
 {
@@ -38,14 +38,14 @@ void	ft_check_map_line(t_p *p, char *line)
 
 void	ft_get_walls(t_p *p, char *line)
 {
-	if (!ft_strncmp(line, "NO ", 3) && !p->tex[2])
-		p->tex[2] = ft_strdup(line + 3);
-	else if (!ft_strncmp(line, "SO ", 3) && !p->tex[3])
-		p->tex[3] = ft_strdup(line + 3);
-	else if (!ft_strncmp(line, "WE ", 3) && !p->tex[0])
-		p->tex[0] = ft_strdup(line + 3);
-	else if (!ft_strncmp(line, "EA ", 3) && !p->tex[1])
-		p->tex[1] = ft_strdup(line + 3);
+	if (!ft_strncmp(line, "NO ", 3) && !p->xpm[2])
+		p->xpm[2] = ft_strdup(line + 3);
+	else if (!ft_strncmp(line, "SO ", 3) && !p->xpm[3])
+		p->xpm[3] = ft_strdup(line + 3);
+	else if (!ft_strncmp(line, "WE ", 3) && !p->xpm[0])
+		p->xpm[0] = ft_strdup(line + 3);
+	else if (!ft_strncmp(line, "EA ", 3) && !p->xpm[1])
+		p->xpm[1] = ft_strdup(line + 3);
 	else
 		ft_print_error("The texture is already set\n");
 }
@@ -62,5 +62,5 @@ void	ft_parse_line(t_p *p, char *line)
 	else
 		ft_print_error("Invalid settings for the wall testure\n");
 	p->got_sets = (p->ceiling >= 0 && p->floor >= 0 \
-		&& p->tex[0] && p->tex[1] && p->tex[2] && p->tex[3]);
+		&& p->xpm[0] && p->xpm[1] && p->xpm[2] && p->xpm[3]);
 }

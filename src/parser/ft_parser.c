@@ -6,11 +6,11 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:22:24 by zu                #+#    #+#             */
-/*   Updated: 2022/03/06 20:27:41 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 22:12:51 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cub3d.h"
+#include "include/cub3d.h"
 
 static int	validate_args(int argc, char **argv)
 {
@@ -34,6 +34,8 @@ static void	init_settings(t_p *p)
 
 	p->floor = -1;
 	p->ceiling = -1;
+	p->res_x = 800;
+	p->res_y = 600;
 	p->got_sets = false;
 	p->end_map = 0;
 	p->map_height = 0;
@@ -43,7 +45,7 @@ static void	init_settings(t_p *p)
 	p->pers_y = 0;
 	i = -1;
 	while (++i < 5)
-		p->tex[i] = NULL;
+		p->xpm[i] = NULL;
 }
 
 static void	save_settings(t_p *p, int fd)
