@@ -6,7 +6,7 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:22:24 by zu                #+#    #+#             */
-/*   Updated: 2022/03/06 22:50:46 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 23:15:00 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	validate_args(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		ft_print_error(NULL);
-	return(fd);
+	return (fd);
 }
 
 static void	init_settings(t_p *p)
@@ -87,5 +87,5 @@ int	ft_parser(t_p *p, int argc, char **argv)
 	ft_create_map(p);
 	ft_check_holes(p);
 	close(fd);
-	return(0);
+	return (0);
 }

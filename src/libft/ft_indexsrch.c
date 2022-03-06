@@ -6,13 +6,13 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 17:48:01 by hmeriann          #+#    #+#             */
-/*   Updated: 2021/08/06 17:32:30 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 23:13:44 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_indexsrch(const char *s, int c)
+int	ft_indexsrch(const char *s, int c)
 {
 	const char	*tmp;
 	int			index;

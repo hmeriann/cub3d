@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 16:46:15 by hmeriann          #+#    #+#             */
-/*   Updated: 2021/05/12 17:14:53 by hmeriann         ###   ########.fr       */
+/*   Updated: 2022/03/06 23:13:16 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	{
 		if (*tmp_s == (unsigned char)target)
 			return (tmp_s);
-		tmp_s++, i++;
+		tmp_s++;
+		i++;
 	}
 	return (NULL);
 }

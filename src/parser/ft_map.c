@@ -6,7 +6,7 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:08:32 by zu                #+#    #+#             */
-/*   Updated: 2022/03/06 22:48:11 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 23:15:27 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_create_map(t_p *p)
 	int		i;
 	t_list	*l_item;
 
-	p->map_width +=2;
-	p->map_height +=2;
+	p->map_width += 2;
+	p->map_height += 2;
 	p->map = malloc(sizeof(*p->map) * p->map_height);
 	if (!p->map)
 		ft_print_error("Malloc error\n");

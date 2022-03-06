@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/06 23:11:31 by zu                #+#    #+#             */
+/*   Updated: 2022/03/06 23:12:40 by zu               ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -58,5 +70,5 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 char	*ft_strcpy(char *dst, char *src);
 int		get_next_line(int fd, char **line);
-int 	ft_indexsrch(const char *s, int c);
+int		ft_indexsrch(const char *s, int c);
 #endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/06 23:18:05 by zu                #+#    #+#             */
+/*   Updated: 2022/03/06 23:18:06 by zu               ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUB3D_H
 # define CUB3D_H
 
@@ -8,12 +20,8 @@
 # include <stdbool.h>
 # include <fcntl.h>
 # include <sys/errno.h>
-
 # include "../src/mlx/mlx.h"
-// # include "get_next_line.h"
 # include "../src/libft/libft.h"
-
-# define DEBUG 0
 
 # define KEY_W 13
 # define KEY_S 1
@@ -26,10 +34,8 @@
 # define KEY_Q 12
 # define KEY_E 14
 # define KEY_ESC 53
-
 # define PLR_SPEED 0.16
 # define PLR_ROTATE_SPEED 2
-
 # define TRNS 0x980088
 
 typedef struct s_vector
@@ -68,12 +74,10 @@ typedef struct s_player
 	double		vx;
 	double		vy;
 	double		vz;
-
 	float		diff;
 	int			texture_ind;
 	t_sprite	sprite[200];
 	int			cnt_s;
-
 	int			ind_v;
 	int			rotate_speed;
 	float		speed;
@@ -91,8 +95,8 @@ typedef struct s_button
 
 typedef struct s_p
 {
-    int     argc;
-    char    **argv;
+	int		argc;
+	char	**argv;
 	int		res_x;
 	int		res_y;
 	char	*xpm[5];
@@ -120,9 +124,8 @@ typedef struct s_data {
 	int			bpp;
 	int			llen;
 	int			end;
-
 	t_texture	xpm[5];
-	t_p		*p;
+	t_p			*p;
 	t_player	*plr;
 	t_button	*btn;
 	t_vector	*v;
@@ -225,26 +228,25 @@ int		get_pixel_img(t_data *img, int row, int col);
 void	draw_player(t_p *p, t_data *img);
 void	draw_mmap(t_p *p, t_data	*img);
 void	draw_ray_of_sight(t_p *p, t_data *img);
-
-
 // NEW_FUNCTIONS
-void    ft_init_n_textures(t_data *img, t_p *p);
+void	ft_init_n_textures(t_data *img, t_p *p);
 void	ft_vector_make(t_data *img, t_p *p);
-void    ft_player_init(t_data *img, t_p *p, t_player *plr);
-void    fr_draw_0(t_p *p, t_data *img);
+void	ft_player_init(t_data *img, t_p *p, t_player *plr);
+void	fr_draw_0(t_p *p, t_data *img);
 int		get_pixel_img(t_data *img, int row, int col);
-void    ft_bmp_create(t_data *img);
-void    ft_next(t_vector *vector, t_dot *dot, t_dot *dot_row);
+void	ft_bmp_create(t_data *img);
+void	ft_next(t_vector *vector, t_dot *dot, t_dot *dot_row);
 void	ft_buttons_n_window(t_data *img, t_button *btn, t_p *p);
 void	ft_start(t_data *img);
-void    ft_resol_check(t_p *p, t_data *img);
-void    ft_vectors_make(t_data *img, t_p *p);
-void	ft_vector_feel(t_data *img, double	cos_step, double	sin_step, t_p *p);
+void	ft_resol_check(t_p *p, t_data *img);
+void	ft_vectors_make(t_data *img, t_p *p);
+void	ft_vector_feel(t_data *img, double cos_step, \
+						double sin_step, t_p *p);
 void	ft_textures_1(t_data *img, t_p *p);
-void    ft_line_make(t_data *img, t_vector vect, t_p *p);
+void	ft_line_make(t_data *img, t_vector vect, t_p *p);
 void	ft_pixel_make(t_data *img, int row, int col, int color);
 void	ft_pix_draw(t_data *img, int down, t_texture *xpm, int row_sp);
-void    ft_col_make(t_data *img, int i);
+void	ft_col_make(t_data *img, int i);
 void	ft_draw(t_p *p, t_data *img);
 
 #endif

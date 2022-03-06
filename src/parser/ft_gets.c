@@ -6,7 +6,7 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 11:54:46 by zu                #+#    #+#             */
-/*   Updated: 2022/03/06 22:48:11 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 23:16:04 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	save_fc(t_p *p, int *color, bool is_floor)
 	}
 	else
 	{
-		if (p->ceiling !=-1)
+		if (p->ceiling != -1)
 			ft_print_error("Ceiling color is already set\n");
 		p->ceiling = rec_color(0, color[0], color[1], color[2]);
 	}
@@ -66,7 +66,7 @@ void	ft_get_fc(t_p *p, char *line, bool is_floor)
 	i = 0;
 	while (arr[i])
 		i++;
-	if(i != 3 || !is_rgb(arr) || ft_count_chars(line, ",") != 2)
+	if (i != 3 || !is_rgb(arr) || ft_count_chars(line, ",") != 2)
 		ft_print_error("Invalid setting for the floor or the ceiling\n");
 	i = -1;
 	while (++i < 3)
