@@ -16,7 +16,12 @@ CC		= cc
 RM		= rm -f
 
 SRCS	= ./src/main.c \
+		./src/utils/ft_common_checks.c \
 		./src/parser/ft_parser.c \
+		./src/parser/ft_checks.c \
+		./src/parser/ft_print_error.c \
+		./src/parser/ft_gets.c \
+		./src/parser/ft_map.c \
 		# ./src/logic/logic.c \
 		
 OBJS	= ${SRCS:.c=.o}

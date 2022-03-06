@@ -6,7 +6,7 @@
 #    By: zu <zu@student.42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/22 17:14:40 by hmeriann          #+#    #+#              #
-#    Updated: 2021/11/10 18:25:08 by zu               ###   ########.fr        #
+#    Updated: 2022/03/06 13:10:32 by zu               ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ LIST =		ft_memset.c		ft_bzero.c		ft_memcpy.c\
 			ft_lstadd_back.c\
 			ft_lstdelone.c	ft_lstclear.c	ft_strcpy.c\
 			ft_lstiter.c	ft_lstmap.c		get_next_line.c\
-			ft_indexsrch.c	\
+			ft_indexsrch.c	ft_split_set.c	ft_arrlen.c\
 			
 OBJ =		$(patsubst %.c,%.o,$(LIST))
 

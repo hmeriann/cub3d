@@ -6,7 +6,7 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 18:31:45 by zu                #+#    #+#             */
-/*   Updated: 2022/03/05 19:09:59 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 14:52:22 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_check_map_line(t_p *p, char *line)
 	while (line[i])
 	{
 		if (!ft_strchr("01 NWSE", line[i]))
-			ft_print_error("Wrong character in the map\n");
+			ft_print_error("Unknown key in the map\n");
 		if (ft_strchr("NWSE", line[i]))
 		{
 			if (p->pers_x)
@@ -36,7 +36,31 @@ void	ft_check_map_line(t_p *p, char *line)
 	ft_lstadd_back(&p->lst_map, ft_lstnew(ft_strdup(line)));
 }
 
+void	ft_get_walls(t_p *p, char *line)
+{
+	if (!ft_strncmp(line, "NO ", 3) && !p->tex[2])
+		p->tex[2] = ft_strdup(line + 3);
+	else if (!ft_strncmp(line, "SO ", 3) && !p->tex[3])
+		p->tex[3] = ft_strdup(line + 3);
+	else if (!ft_strncmp(line, "WE ", 3) && !p->tex[0])
+		p->tex[0] = ft_strdup(line + 3);
+	else if (!ft_strncmp(line, "EA ", 3) && !p->tex[1])
+		p->tex[1] = ft_strdup(line + 3);
+	else
+		ft_print_error("The texture is already set\n");
+}
+
 void	ft_parse_line(t_p *p, char *line)
 {
-	
+	while (*line == '\t' || *line == ' ')
+		line++;
+	if (!ft_strncmp(line, "F ", 2) || !ft_strncmp(line, "C ", 2))
+		ft_get_fc(p, line + 2, !ft_strncmp(line, "F ", 2));
+	else if (!(ft_strncmp(line, "NO ", 3) && ft_strncmp(line, "SO ", 3) \
+			&& ft_strncmp(line, "WE ", 3) && ft_strncmp(line, "EA ", 3)))
+		ft_get_walls(p, line);
+	else
+		ft_print_error("Invalid settings for the wall testure\n");
+	p->got_sets = (p->ceiling >= 0 && p->floor >= 0 && p->res_x && p->res_x \
+		&& p->tex[0] && p->tex[1] && p->tex[2] && p->tex[3] && p->tex[4]);
 }
