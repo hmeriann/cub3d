@@ -1,44 +1,110 @@
-NAME	= cub3d
+NAME		=	cub3D
+NAME_B		=	lab3D
 
-HEADER	= ./includes/cub3d.h
+SRCS_FILES	= 	main.c \
+				parcer.c \
+				parcer_map.c \
+				parcer_lines.c \
+				parcer_utils.c \
+				raise_error.c \
+				window.c \
+				game.c \
+				hooks.c \
+				rays.c \
+				rays_checks.c \
+				get_img.c \
+				get_img_helpers.c \
+				inicialise_structs.c \
+				mooving.c \
+				save.c \
+				utils.c \
+				gnl/get_next_line.c \
+				utils_0.c \
+				utils_1.c \
+				utils_2.c \
+				utils_3.c \
+				utils_4.c \
+				utils_5.c \
 
-CFLAGS	= -g -Wall -Wextra -Werror -I.
-INCLUDES = -I includes/libft/libft.a 
-# INCLUDES = -I includes/libft/libft.a -I/usr/local/opt/readline/include
-# INCLUDES = -I./includes -I./libs/libft/ -I /usr/local/include/readline
 
-LIBFT		= ./includes/libft/libft.a
-# RDLINE		= -lreadline -L ~/.brew/opt/readline/lib
-# RDLINE		= -lreadline -L /usr/local/opt/readline/lib
 
-CC		= cc
 
-RM		= rm -f
 
-SRCS	= ./src/main.c \
-		# ./src/logic/logic.c \
+SRCS_B_FILES	=	main_bonus.c \
+					parcer_bonus.c \
+					parcer_map_bonus.c \
+					parcer_lines_bonus.c \
+					parcer_utils_bonus.c \
+					raise_error_bonus.c \
+					window_bonus.c \
+					game_bonus.c \
+					hooks_bonus.c \
+					rays_bonus.c \
+					rays_checks_bonus.c \
+					get_img_bonus.c \
+					get_img_helpers_bonus.c \
+					inicialise_structs_bonus.c \
+					move_bonus.c \
+					rotate_bonus.c \
+					save_bonus.c \
+					utils_bonus.c \
+					minimap_bonus.c \
+					hud_bonus.c \
+					player_bonus.c \
+					gnl/get_next_line.c \
+
+SRCS_FOLDER	=	src/
+SRCS_B_FLD	=	src_bonus/
+HEADER		=	include/cub3d.h
+
+SRCS		= 	$(addprefix $(SRCS_FOLDER),$(SRCS_FILES))
+SRCS_B		=	$(addprefix $(SRCS_B_FLD),$(SRCS_B_FILES))
+OBJS		=	$(patsubst %.c,%.o,$(SRCS))
+OBJS_B		=	$(patsubst %.c,%.o,$(SRCS_B))
+
+INCLUDE		=	-I./include -I./src/libft/ -I./src/gnl/ -I./src/mlx/
+
+CC			=	gcc
+CFLAGS		=	-Wall -Wextra -Werror -MMD
+FRAMEWORK	=	-framework OpenGL -framework AppKit
+RM			=	rm -f
+
+LIBC		=	ar rcs
+
+MLX = ./src/mlx/libmlx.a
+LIB = ./src/libft/libft.a
+
+all:		$(NAME)
+
+bonus:		$(NAME_B)
+
+%.o:		%.c
+			$(CC) $(CFLAGS) $(INCLUDE) -c -g $< -o $@
 		
-OBJS	= ${SRCS:.c=.o}
+$(NAME):	$(OBJS)
+			$(MAKE) -C $(dir $(MLX)) 2> /dev/null
+			$(MAKE) -C $(dir $(LIB))
+			$(CC) $(INCLUDE) $(FRAMEWORK) $(MLX) $(LIB) -o $(NAME) $(OBJS)
 
-$(NAME):	$(OBJS) $(HEADER)
-			@$(MAKE) -C ./includes/libft
-			@$(CC) $(OBJS) $(CFLAGS) includes/libft/libft.a -o $(NAME) $(INCLUDES)
-
-
-.c.o:	Makefile ./includes/cub3d.h
-		@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
-
-all:	$(NAME)
+$(NAME_B):	$(OBJS_B)
+			$(MAKE) -C $(dir $(MLX)) 2> /dev/null
+			$(MAKE) -C $(dir $(LIB))
+			$(CC) $(INCLUDE) $(FRAMEWORK) $(MLX) $(LIB) -o $(NAME_B) $(OBJS_B)
 
 clean:
-		@$(RM) $(OBJS)
-		@$(MAKE) fclean -C ./includes/libft
-		# @echo "$(NAME): $(YEL)Object files deleted$(DEF)"
+			$(RM) $(OBJS) $(OBJS:.o=.d)
+			$(RM) $(OBJS_B) $(OBJS_B:.o=.d)
+			@make -C $(dir $(MLX)) clean
+			@make -C $(dir $(LIB)) clean
 
-fclean:	clean
-		@$(RM) $(NAME)
-		# @echo "$(NAME): $(YEL)Executable file deleted$(DEF)"
+fclean:		clean
+			@make -C $(dir $(LIB)) fclean
+			$(RM) $(MLX)
+			$(RM) $(NAME)
+			$(RM) $(NAME_B)
 
-re:		fclean all
+re:			fclean all
 
-.PHONY:	all clean fclean re
+.PHONY:		all clean fclean re bonus
+-include	$(OBJS:.o=.d)
+-include	$(OBJS_B:.o=.d)
