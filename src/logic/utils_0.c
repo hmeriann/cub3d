@@ -6,11 +6,11 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 19:54:57 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/06 22:15:56 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 22:48:11 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/cub3d.h"
+#include "../../include/cub3d.h"
 
 void	ft_player_init(t_data *img, t_p *p, t_player *plr)
 {

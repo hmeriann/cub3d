@@ -6,11 +6,11 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 19:59:44 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/06 21:52:11 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 22:48:11 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/cub3d.h"
+#include "../../include/cub3d.h"
 
 void	ft_next(t_vector *vector, t_dot *dot, t_dot *dot_row)
 {

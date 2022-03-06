@@ -1,9 +1,9 @@
-NO ./textures/NO.xpm
-SO ./textures/SO.xpm
-WE ./textures/WE.xpm
-EA ./textures/EA.xpm
-F 220,100,0
-C 225,30,0
+NO ./textures/lava.xpm
+SO ./textures/sand.xpm
+WE ./textures/grass.xpm
+EA ./textures/stone.xpm
+C 0,170,200
+F 102,102,70
 111
 101
 101

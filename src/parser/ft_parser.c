@@ -6,11 +6,11 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:22:24 by zu                #+#    #+#             */
-/*   Updated: 2022/03/06 22:12:51 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 22:50:46 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/cub3d.h"
+#include "../../include/cub3d.h"
 
 static int	validate_args(int argc, char **argv)
 {
@@ -44,7 +44,7 @@ static void	init_settings(t_p *p)
 	p->pers_x = 0;
 	p->pers_y = 0;
 	i = -1;
-	while (++i < 5)
+	while (++i < 4)
 		p->xpm[i] = NULL;
 }
 

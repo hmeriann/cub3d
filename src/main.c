@@ -6,11 +6,11 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 18:50:32 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/06 21:50:18 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 22:48:16 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/cub3d.h"
+#include "../include/cub3d.h"
 
 int	main(int argc, char **argv)
 {

@@ -6,11 +6,11 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 18:31:45 by zu                #+#    #+#             */
-/*   Updated: 2022/03/06 22:04:59 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 22:48:11 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/cub3d.h"
+#include "../../include/cub3d.h"
 
 void	ft_check_map_line(t_p *p, char *line)
 {

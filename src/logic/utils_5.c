@@ -6,11 +6,11 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 18:33:38 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/06 22:13:22 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 22:48:11 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/cub3d.h"
+#include "../../include/cub3d.h"
 
 void	ft_col_make(t_data *img, int i)
 {

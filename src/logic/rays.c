@@ -1,4 +1,4 @@
-#include "include/cub3d.h"
+#include "../../include/cub3d.h"
 
 /*
 **	@brief	'trows' ray of sight and get distance (and height)

@@ -6,11 +6,11 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 18:42:33 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/06 22:16:28 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 22:50:33 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/cub3d.h"
+#include "../../include/cub3d.h"
 
 void	ft_resol_check(t_p *p, t_data *img)
 {
@@ -78,7 +78,7 @@ void	ft_textures_1(t_data *img, t_p *p)
 	int	j;
 
 	i = -1;
-	while (++i < 5)
+	while (++i < 4)
 	{
 		j = -1;
 		while (++j < i)

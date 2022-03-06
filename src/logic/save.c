@@ -6,11 +6,11 @@
 /*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 18:00:56 by pantigon          #+#    #+#             */
-/*   Updated: 2022/03/06 21:52:11 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/06 22:48:11 by zu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/cub3d.h"
+#include "../../include/cub3d.h"
 
 /*
 **	@brief	put type int to string by bytes

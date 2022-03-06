@@ -1,4 +1,4 @@
-#include "include/cub3d.h"
+#include "../../include/cub3d.h"
 
 int	press_button(int keycode, t_data *img)
 {

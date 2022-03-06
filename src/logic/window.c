@@ -1,4 +1,4 @@
-#include "include/cub3d.h"
+#include "../../include/cub3d.h"
 
 /*
 **	@brief	Create a window and img objects and load textures
@@ -72,7 +72,7 @@ void	get_textures(t_data *img, t_texture *xpm, t_p *p)
 	int	j;
 
 	i = -1;
-	while (++i < 5)
+	while (++i < 4)
 	{
 		j = -1;
 		while (++j < i)

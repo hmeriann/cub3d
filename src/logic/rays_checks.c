@@ -1,4 +1,4 @@
-#include "include/cub3d.h"
+#include "../../include/cub3d.h"
 
 /*
 **	@brief	checks the cell of map and get dist(height) to cell

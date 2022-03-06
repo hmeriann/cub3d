@@ -29,12 +29,12 @@ OBJS	= ${SRCS:.c=.o}
 
 SRCS_FOLDER	=	src/
 
-HEADER		=	include/cub3d.h
+HEADER		=	../../include/cub3d.h
 
 SRCS		= 	$(addprefix $(SRCS_FOLDER),$(SRCS_FILES))
 OBJS		=	$(patsubst %.c,%.o,$(SRCS))
 
-INCLUDE		=	-I./include -I./src/libft/ -I./src/mlx/
+INCLUDE		=	-I./../../include/cub3d.h -I./src/libft/ -I./src/mlx/
 
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror -MMD

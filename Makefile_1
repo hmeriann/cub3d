@@ -1,6 +1,6 @@
 NAME	= cub3d
 
-HEADER	= include/cub3d.h
+HEADER	= ../../include/cub3d.h
 
 CFLAGS	= -g -Wall -Wextra -Werror -I.
 INCLUDES = -I./include -I src/libft/libft.a -I./src/mlx/

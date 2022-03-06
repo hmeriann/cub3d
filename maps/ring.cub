@@ -1,7 +1,7 @@
-NO ./textures/brick.xpm
-SO ./textures/blue.xpm
-WE ./textures/wood.xpm
-EA ./textures/grey.xpm
+NO ./textures/sand.xpm
+SO ./textures/grass.xpm
+WE ./textures/stone.xpm
+EA ./textures/lava.xpm
 
 F 111,100,111
 C 22,22,11
