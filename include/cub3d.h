@@ -6,7 +6,7 @@
 /*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 23:18:05 by zu                #+#    #+#             */
-/*   Updated: 2022/03/07 14:39:18 by jbasmati         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:41:22 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,8 +197,8 @@ int		ft_get_pixel(t_texture *xpm, int row_sp, float diff);
 void	pe4em_vectora(t_data *img, t_p *p);
 
 /*hooks.c*/
-int		press_button(int keycode, t_data *img);
-int		release_button(int keycode, t_data *img);
+int		ft_button(int keycode, t_data *img);
+int		ft_release_button(int keycode, t_data *img);
 
 /*game.c*/
 void	run_game(t_data *img);

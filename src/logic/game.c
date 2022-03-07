@@ -7,8 +7,8 @@
 */
 void	run_game(t_data *img)
 {
-	mlx_hook(img->win, 2, 1L << 0, press_button, img);
-	mlx_hook(img->win, 3, 1L << 1, release_button, img);
+	mlx_hook(img->win, 2, 1L << 0, ft_button, img);
+	mlx_hook(img->win, 3, 1L << 1, ft_release_button, img);
 	mlx_hook(img->win, 17, 1L << 1, close_win, img);
 	mlx_loop_hook(img->mlx, main_game, img);
 	mlx_loop(img->mlx);
