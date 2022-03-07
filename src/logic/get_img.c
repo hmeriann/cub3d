@@ -1,12 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_img.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/07 14:38:15 by jbasmati          #+#    #+#             */
+/*   Updated: 2022/03/07 14:39:18 by jbasmati         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/cub3d.h"
 
-/**
- * @brief puts sprites and walls to img
- *
- * @param p 	pointer to structure with parameters
- * @param img 	the mlx instance
- */
-void	draw_walls(t_p *p, t_data *img)
+void	ft_draw_walls(t_p *p, t_data *img)
 {
 	int		col;
 	int		start_ind;
@@ -19,21 +25,15 @@ void	draw_walls(t_p *p, t_data *img)
 		start_ind += p->cnt_v;
 	while (col < p->res_x)
 	{
-		throw_ray(img, img->v[start_ind + col]);
+		ft_ray(img, img->v[start_ind + col]);
 		k = img->v[ft_abs(p->res_x / 2 - col)].x;
 		i = img->plr->cnt_s;
 		img->plr->sprite[i - 1].h /= k;
-		put_column(img, img->plr->sprite, col, img->plr->cnt_s);
+		ft_column(img, img->plr->sprite, col, img->plr->cnt_s);
 		col++;
 	}
 }
 
-/**
- * @brief fills in foolr and celling colors
- *
- * @param p 	pointer to structure with parameters
- * @param img 	the mlx instance
- */
 void	draw_floor_and_cel(t_p *p, t_data *img)
 {
 	int	i;
@@ -45,16 +45,7 @@ void	draw_floor_and_cel(t_p *p, t_data *img)
 		ft_put_row(img, i++, p->floor);
 }
 
-/**
- * @brief 	fills one column of image.
- * 			draws sprites pixels sequentially starting from the farthest
- *
- * @param img 	the mlx instance
- * @param spr 	sprite sequence
- * @param col 	сolumn index
- * @param i 	index last  sprite. just for nominette
- */
-void	put_column(t_data *img, t_sprite *spr, int col, int i)
+void	ft_column(t_data *img, t_sprite *spr, int col, int i)
 {
 	int			row_sp;
 	int			up;

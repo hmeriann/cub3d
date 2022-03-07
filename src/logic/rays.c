@@ -7,7 +7,7 @@
 **	@param	img		the mlx instance
 **	@param	vray	current ray vector
 */
-void	throw_ray(t_data *img, t_vector vray)
+void	ft_ray(t_data *img, t_vector vray)
 {
 	t_dot	dot;
 	t_dot	dot_row;

@@ -6,7 +6,7 @@
 /*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 23:18:05 by zu                #+#    #+#             */
-/*   Updated: 2022/03/07 14:36:53 by jbasmati         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:39:18 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,11 +175,11 @@ void	get_textures(t_data *img, t_texture *xpm, t_p *p);
 
 /*get_img.c*/
 void	draw_floor_and_cel(t_p *p, t_data *img);
-void	draw_walls(t_p *p, t_data *img);
-void	put_column(t_data *img, t_sprite *spr, int col, int i);
+void	ft_draw_walls(t_p *p, t_data *img);
+void	ft_column(t_data *img, t_sprite *spr, int col, int i);
 
 /*rays.c*/
-void	throw_ray(t_data *img, t_vector vray);
+void	ft_ray(t_data *img, t_vector vray);
 void	inicialise_first_dots(t_data *img, t_vector *vray, t_dot *dot_row,
 			t_dot *dot_col);
 void	get_next_cross(t_vector *vray, t_dot *dot, t_dot *d, int is_row);
