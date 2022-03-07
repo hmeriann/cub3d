@@ -6,7 +6,7 @@
 /*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 16:50:54 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/07 14:36:53 by jbasmati         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:51:05 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	ft_line_make_1(t_data *img, t_dot *dot_row, t_dot *dot_col, \
 			< ft_dist(dot_col->x - img->plr->x, dot_col->y - img->plr->y))
 		{
 			ft_next(vect, &dot, dot_row);
-			if (check_cell_x(img, vect, &dot, &img->plr->cnt_s))
+			if (ft_sell_x(img, vect, &dot, &img->plr->cnt_s))
 				break ;
 		}
 		else
 		{
 			ft_next(vect, &dot, dot_row);
-			if (check_cell_y(img, vect, &dot, &img->plr->cnt_s))
+			if (ft_cell_y(img, vect, &dot, &img->plr->cnt_s))
 				break ;
 			max_cross--;
 		}

@@ -6,7 +6,7 @@
 /*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 23:18:05 by zu                #+#    #+#             */
-/*   Updated: 2022/03/07 14:49:10 by jbasmati         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:51:17 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,10 +185,10 @@ void	inicialise_first_dots(t_data *img, t_vector *vray, t_dot *dot_row,
 void	get_next_cross(t_vector *vray, t_dot *dot, t_dot *d, int is_row);
 
 /*rayc_check.c*/
-int		check_cell_x(t_data *img, t_vector *vray, t_dot *dot, int *i);
-int		check_cell_y(t_data *img, t_vector *vray, t_dot *dot, int *i);
-void	check_sprite_x(t_data *img, t_vector *vray, t_dot *dot, char cell);
-void	check_sprite_y(t_data *img, t_vector *vray, t_dot *dot, char cell);
+int		ft_sell_x(t_data *img, t_vector *vray, t_dot *dot, int *i);
+int		ft_cell_y(t_data *img, t_vector *vray, t_dot *dot, int *i);
+void	ft_sprite_x(t_data *img, t_vector *vray, t_dot *dot, char cell);
+void	ft_sprite_y(t_data *img, t_vector *vray, t_dot *dot, char cell);
 
 /*get_img_helpers.c*/
 void	ft_put_pixel(t_data *img, int row, int col, int color);

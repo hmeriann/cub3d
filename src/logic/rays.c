@@ -22,13 +22,13 @@ void	ft_ray(t_data *img, t_vector vray)
 			< ft_dist(dot_col.x - img->plr->x, dot_col.y - img->plr->y))
 		{
 			get_next_cross(&vray, &dot, &dot_row, 1);
-			if (check_cell_x(img, &vray, &dot, &img->plr->cnt_s))
+			if (ft_sell_x(img, &vray, &dot, &img->plr->cnt_s))
 				break ;
 		}
 		else
 		{
 			get_next_cross(&vray, &dot, &dot_col, 0);
-			if (check_cell_y(img, &vray, &dot, &img->plr->cnt_s))
+			if (ft_cell_y(img, &vray, &dot, &img->plr->cnt_s))
 				break ;
 		}
 	}
