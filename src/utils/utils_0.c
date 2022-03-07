@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_0.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 19:54:57 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/07 13:26:46 by hmeriann         ###   ########.fr       */
+/*   Updated: 2022/03/07 15:07:50 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,25 +91,4 @@ void	ft_textures(t_data *img, t_texture *xpm, t_p *p, int i)
 		ft_print_error("Cannot read texture file\n");
 	xpm[i].addr = mlx_get_data_addr(xpm[i].img, &xpm[i].bpp,
 			&xpm[i].llen, &xpm[i].end);
-}
-
-void	ft_init_n_textures(t_data *img, t_p *p)
-{
-	int	i;
-
-	i = 0;
-	img->p = p;
-	img->mlx = mlx_init();
-	if (!img->mlx)
-		ft_print_error("Cannot initialize mlx\n");
-	img->llen = p->res_x * 4;
-	img->bpp = 32;
-	img->addr = malloc(img->llen * p->res_y);
-	if (!img->addr)
-		ft_print_error("Cannot allocate memory for img instance\n");
-	while (i < 5)
-	{
-		ft_textures(img, img->xpm, p, i);
-		i++;
-	}
 }

@@ -6,7 +6,7 @@
 /*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 23:18:05 by zu                #+#    #+#             */
-/*   Updated: 2022/03/07 14:57:17 by jbasmati         ###   ########.fr       */
+/*   Updated: 2022/03/07 15:08:29 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,19 +144,14 @@ typedef struct s_cell
 	char	y;
 }	t_cell;
 
-/*utils*/
 int		ft_digits(char *line);
 int		ft_count_chars(const char *line, char *chars);
 void	ft_free_split(char **arr);
 int		mini_strchr(char *str, char c);
-//utils.c
 int		ft_abs(int a);
 int		ft_min(int a, int b);
 int		ft_max(int a, int b);
 float	ft_dist(float a, float b);
-void	rotate_by_ange(double *x, double *y, double sin_a, double cos_a);
-
-/*parser*/
 int		ft_parser(t_p *p, int argc, char **argv);
 void	ft_print_error(char *s);
 void	ft_check_map_line(t_p *p, char *line);
@@ -166,58 +161,34 @@ void	ft_get_fc(t_p *p, char *line, bool is_floor);
 void	ft_get_walls(t_p *p, char *line);
 void	ft_create_map(t_p *p);
 void	ft_check_holes(t_p *p);
-
-/*window.c*/
-void	create_window(t_data *img, t_p *p, t_button *btn);
 int		ft_win_close(t_data *img);
-
-/*get_img.c*/
 void	draw_floor_and_cel(t_p *p, t_data *img);
 void	ft_draw_walls(t_p *p, t_data *img);
 void	ft_column(t_data *img, t_sprite *spr, int col, int i);
-
-/*rays.c*/
 void	ft_ray(t_data *img, t_vector vray);
 void	ft_init_dots(t_data *img, t_vector *vray, t_dot *dot_row,
 			t_dot *dot_col);
 void	ft_next_cross(t_vector *vray, t_dot *dot, t_dot *d, int is_row);
-
-/*rayc_check.c*/
 int		ft_sell_x(t_data *img, t_vector *vray, t_dot *dot, int *i);
 int		ft_cell_y(t_data *img, t_vector *vray, t_dot *dot, int *i);
 void	ft_sprite_x(t_data *img, t_vector *vray, t_dot *dot, char cell);
 void	ft_sprite_y(t_data *img, t_vector *vray, t_dot *dot, char cell);
-
-/*get_img_helpers.c*/
 void	ft_put_pixel(t_data *img, int row, int col, int color);
 void	ft_put_row(t_data *img, int row, int color);
 int		ft_get_pixel(t_texture *xpm, int row_sp, float diff);
-void	pe4em_vectora(t_data *img, t_p *p);
-
-/*hooks.c*/
 int		ft_button(int keycode, t_data *img);
 int		ft_release_button(int keycode, t_data *img);
-
-/*game.c*/
 int		ft_game(t_data *img);
-
-/*mooving.c*/
 void	ft_pos(char **map, t_player *plr, t_button *btn, t_vector *vs);
 void	ft_view(t_p *p, t_player *plr, t_button *btn);
 void	ft_forward(t_vector *v, float speed, float *row, float *col);
 void	ft_sideway(t_vector *v, float speed, float *row, float *col);
 void	ft_change(char **map, t_player *plr, float row, float col);
-
-/*LOGIC*/
-void	ft_init_n_textures(t_data *img, t_p *p);
 void	ft_vector_make(t_data *img, t_p *p);
 void	ft_player_init(t_data *img, t_p *p, t_player *plr);
-void	fr_draw_0(t_p *p, t_data *img);
 int		ft_get_pixel_img(t_data *img, int row, int col);
-void	ft_bmp_create(t_data *img);
 void	ft_next(t_vector *vector, t_dot *dot, t_dot *dot_row);
 void	ft_buttons_n_window(t_data *img, t_button *btn, t_p *p);
-void	ft_start(t_data *img);
 void	ft_resol_check(t_p *p, t_data *img);
 void	ft_vectors_make(t_data *img, t_p *p);
 void	ft_vector_feel(t_data *img, double cos_step, \
@@ -228,5 +199,4 @@ void	ft_pixel_make(t_data *img, int row, int col, int color);
 void	ft_pix_draw(t_data *img, int down, t_texture *xpm, int row_sp);
 void	ft_col_make(t_data *img, int i);
 void	ft_draw(t_p *p, t_data *img);
-
 #endif
