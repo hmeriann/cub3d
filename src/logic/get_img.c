@@ -2,7 +2,7 @@
 
 /**
  * @brief puts sprites and walls to img
- * 
+ *
  * @param p 	pointer to structure with parameters
  * @param img 	the mlx instance
  */
@@ -30,7 +30,7 @@ void	draw_walls(t_p *p, t_data *img)
 
 /**
  * @brief fills in foolr and celling colors
- * 
+ *
  * @param p 	pointer to structure with parameters
  * @param img 	the mlx instance
  */
@@ -46,9 +46,9 @@ void	draw_floor_and_cel(t_p *p, t_data *img)
 }
 
 /**
- * @brief 	fills one column of image. 
+ * @brief 	fills one column of image.
  * 			draws sprites pixels sequentially starting from the farthest
- * 
+ *
  * @param img 	the mlx instance
  * @param spr 	sprite sequence
  * @param col 	сolumn index
@@ -72,10 +72,11 @@ void	put_column(t_data *img, t_sprite *spr, int col, int i)
 			up = ft_max(0, down);
 			down = ft_min(img->p->res_y, (img->p->res_y - spr[i].h) / 2
 					+ (row_sp + 1) * spr[i].h / xpm->h);
+			color = get_pixel(xpm, row_sp, spr[i].diff);
 			if (down >= 0 && up < img->p->res_y
 				&& (i + 1 == img->plr->cnt_s
 					|| spr[i].h / 2 < img->p->res_y)
-				&& (color = get_pixel(xpm, row_sp, spr[i].diff)) != TRNS)
+				&& color != TRNS)
 				while (up < down)
 					my_mlx_pixel_put(img, up++, col, color);
 		}

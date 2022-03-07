@@ -3,7 +3,7 @@
 /*
 **	@brief	checks the cell of map and get dist(height) to cell
 **			if it's a sprite or a wall
-**	
+**
 **	@param	img		the mlx instance
 **	@param	vray	current ray vector
 **	@param	dot		the point of cross vertical border between cells
@@ -32,7 +32,7 @@ int	check_cell_x(t_data *img, t_vector *vray, t_dot *dot, int *i)
 /*
 **	@brief	checks the cell of map and get dist(height) to cell
 **			if it's a sprite
-**	
+**
 **	@param	img		the mlx instance
 **	@param	vray	current ray vector
 **	@param	dot		the point of cross horizontal border between cells
@@ -59,7 +59,7 @@ void	check_sprite_x(t_data *img, t_vector *vray, t_dot *dot, char cell)
 /*
 **	@brief	checks the cell of map and get dist(height) to cell
 **			if it's a sprite or a wall
-**	
+**
 **	@param	img		the mlx instance
 **	@param	vray	current ray vector
 **	@param	dot		the point of cross veticals border between cells
@@ -88,7 +88,7 @@ int	check_cell_y(t_data *img, t_vector *vray, t_dot *dot, int *i)
 /*
 **	@brief	checks the cell of map and get dist(height) to cell
 **			if it's a sprite
-**	
+**
 **	@param	img		the mlx instance
 **	@param	vray	current ray vector
 **	@param	dot		the point of cross horizontal border between cells

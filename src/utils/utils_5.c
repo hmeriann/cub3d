@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_5.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 18:33:38 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/06 22:48:11 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/07 13:17:58 by hmeriann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ void	ft_draw(t_p *p, t_data *img)
 		ft_line_make(img, img->v[start_ind + col], p);
 		ft_col_make(img, img->plr->cnt_s);
 		col++;
-	}	
+	}
 }

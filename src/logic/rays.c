@@ -3,7 +3,7 @@
 /*
 **	@brief	'trows' ray of sight and get distance (and height)
 **			to cell with sprite and walls
-**	
+**
 **	@param	img		the mlx instance
 **	@param	vray	current ray vector
 */
@@ -36,7 +36,7 @@ void	throw_ray(t_data *img, t_vector vray)
 
 /*
 **	@brief	initialises first intersection ray
-**	
+**
 **	@param	img			the mlx instance
 **	@param	vray		current ray vector
 **	@param	dot_row		intersection by vertical border
@@ -56,7 +56,7 @@ void	inicialise_first_dots(t_data *img, t_vector *vray,
 
 /*
 **	@brief	Get the next ray and cell intersection
-**	
+**
 **	@param	vray	current ray vector
 **	@param	dot		the old point of cross borders between cells
 **	@param	d		the new point of cross borders between cells

@@ -1,4 +1,4 @@
-NAME		=	cub3D
+NAME		=	cub3d
 
 SRCS_FILES	= 	main.c \
 				utils/ft_common_checks.c \
@@ -17,14 +17,14 @@ SRCS_FILES	= 	main.c \
 				logic/inicialise_structs.c \
 				logic/mooving.c \
 				logic/save.c \
-				logic/utils.c \
-				logic/utils_0.c \
-				logic/utils_1.c \
-				logic/utils_2.c \
-				logic/utils_3.c \
-				logic/utils_4.c \
-				logic/utils_5.c \
-		
+				utils/utils.c \
+				utils/utils_0.c \
+				utils/utils_1.c \
+				utils/utils_2.c \
+				utils/utils_3.c \
+				utils/utils_4.c \
+				utils/utils_5.c \
+
 OBJS	= ${SRCS:.c=.o}
 
 SRCS_FOLDER	=	src/
@@ -50,7 +50,7 @@ all:		$(NAME)
 
 %.o:		%.c
 			$(CC) $(CFLAGS) $(INCLUDE) -c -g $< -o $@
-		
+
 $(NAME):	$(OBJS)
 			$(MAKE) -C $(dir $(MLX)) 2> /dev/null
 			$(MAKE) -C $(dir $(LIB))

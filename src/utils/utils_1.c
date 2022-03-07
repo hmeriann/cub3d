@@ -6,7 +6,7 @@
 /*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 19:57:31 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/07 13:08:37 by hmeriann         ###   ########.fr       */
+/*   Updated: 2022/03/07 13:27:10 by hmeriann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,31 +31,4 @@ void	ft_col_feel(t_data *img, int fd, int row)
 	}
 	close(fd);
 	exit(0);
-}
-
-void	ft_bmp_create(t_data *img)
-{
-	int				fd;
-	int				size;
-	unsigned char	header[54];
-	int				row;
-
-	size = 54 + (img->p->res_x + (img->p->res_x + 1) % 4) * img->p->res_y * 3;
-	fd = open("screenshot.bmp", O_WRONLY | O_CREAT
-			| O_TRUNC, S_IRWXU);
-	if (!fd)
-		ft_print_error("Can't create screenshot file\n");
-	ft_bzero(header, 54);
-	header[0] = (unsigned char)('B');
-	header[1] = (unsigned char)('M');
-	ft_put_int(header + 2, size);
-	header[10] = (unsigned char)(54);
-	header[14] = (unsigned char)(40);
-	ft_put_int(header + 18, img->p->res_x);
-	ft_put_int(header + 22, img->p->res_y);
-	header[26] = (unsigned char)(1);
-	header[28] = (unsigned char)(24);
-	write(fd, header, 54);
-	row = img->p->res_y;
-	ft_col_feel(img, fd, row);
 }

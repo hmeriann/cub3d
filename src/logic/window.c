@@ -2,7 +2,7 @@
 
 /*
 **	@brief	Create a window and img objects and load textures
-**	
+**
 **	@param	img		the mlx instance
 **	@param	p		the structure with parameters
 **	@param	btn		the structure with buttons
@@ -16,8 +16,8 @@ void	create_window(t_data *img, t_p *p, t_button *btn)
 		ft_print_error("Cannot initialize mlx\n");
 	get_textures(img, img->xpm, p);
 	correct_resolution(p);
-	img->win = mlx_new_window(img->mlx, p->res_x, p->res_y, "Cub3D");
-	img->win = mlx_new_window(img->mlx, 800, 1200, "Cub3D");
+	img->win = mlx_new_window(img->mlx, p->res_x, p->res_y, "cub3d");
+	img->win = mlx_new_window(img->mlx, 800, 1200, "cub3d");
 	if (!img->win)
 		ft_print_error("Cannot create game windows\n");
 	img->img = mlx_new_image(img->mlx, p->res_x, p->res_y);
@@ -29,7 +29,7 @@ void	create_window(t_data *img, t_p *p, t_button *btn)
 
 /*
 **	@brief	closes window and stop program
-**	
+**
 **	@param	img		the mlx instance
 */
 int	close_win(t_data *img)
@@ -40,8 +40,8 @@ int	close_win(t_data *img)
 }
 
 /*
-**	@brief changes resolution if it's bigger than the display resolution 
-**	
+**	@brief changes resolution if it's bigger than the display resolution
+**
 **	@param	img		the mlx instance
 **	@param	p		pointer to structure of parameters
 **	@return	int		has no return value
@@ -51,17 +51,14 @@ void	correct_resolution(t_p *p)
 	int	x;
 	int	y;
 
-	// if (!p->save)
-	// {
-		mlx_get_screen_size(&x, &y);
-		p->res_x = ft_min(x, p->res_x);
-		p->res_y = ft_min(y, p->res_y);
-	// }
+	mlx_get_screen_size(&x, &y);
+	p->res_x = ft_min(x, p->res_x);
+	p->res_y = ft_min(y, p->res_y);
 }
 
 /*
 **	@brief	Get the textures object
-**	
+**
 **	@param	img		the mlx instance
 **	@param	xpm		array for textures
 **	@param	p		the structure with parameters

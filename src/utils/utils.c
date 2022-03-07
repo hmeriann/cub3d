@@ -2,7 +2,7 @@
 
 /*
 **	@brief	just return minimal from two elements
-**	
+**
 **	@param	a		DOC
 **	@param	b		DOC
 **	@return	int	first or second element

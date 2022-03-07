@@ -2,7 +2,7 @@
 
 /*
 **	@brief	Create a trgb object (encoding color)
-**	
+**
 **	@param	t		transparency
 **	@param	r		red
 **	@param	g		green
@@ -15,8 +15,8 @@ int	create_trgb(int t, int r, int g, int b)
 }
 
 /**
- * @brief put one pixel to img 
- * 
+ * @brief put one pixel to img
+ *
  * @param img 	the mlx instance
  * @param row 	row index
  * @param col 	column index
@@ -31,8 +31,8 @@ void	my_mlx_pixel_put(t_data *img, int row, int col, int color)
 }
 
 /**
- * @brief 	put row pixels to img 
- * 
+ * @brief 	put row pixels to img
+ *
  * @param img 	the mlx instance
  * @param row 	row index
  * @param color	color in 0xTTRRGGBB format
@@ -50,7 +50,7 @@ void	my_mlx_row_put(t_data *img, int row, int color)
 
 /**
  * @brief Get the pixel object from sprite
- * 
+ *
  * @param xpm 		sprite
  * @param row_sp	row index
  * @param diff 		fractional column index
@@ -67,7 +67,7 @@ int	get_pixel(t_texture *xpm, int row_sp, float diff)
 
 /**
  * @brief preprocessing of all possible vectors for turning and throwing rays
- * 
+ *
  * @param img 	the mlx instance
  * @param p 	the structure with parameters
  */

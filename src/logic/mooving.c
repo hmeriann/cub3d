@@ -2,7 +2,7 @@
 
 /*
 **	@brief	changes player position
-**	
+**
 **	@param	map		pointer to map
 **	@param	plr		player structure
 **	@param	btn		button structure
@@ -28,13 +28,13 @@ void	change_pos(char **map, t_player *plr, t_button *btn, t_vector *vs)
 
 /*
 **	@brief	rotates player's view
-**	
+**
 **	@param	p		the structure with parametrs
 **	@param	plr		the player structure
 **	@param	btn		the buttons structure
 */
 void	rotate_view(t_p *p, t_player *plr, t_button *btn)
-{	
+{
 	if (btn->q && !btn->e)
 		plr->ind_v -= plr->rotate_speed;
 	if (btn->e && !btn->q)
@@ -47,7 +47,7 @@ void	rotate_view(t_p *p, t_player *plr, t_button *btn)
 
 /*
 **	@brief	movings player  forward or backward
-**	
+**
 **	@param	v		player sight vector
 **	@param	speed	player speed
 **	@param	row		new player y position
@@ -61,7 +61,7 @@ void	forward_mov(t_vector *v, float speed, float *row, float *col)
 
 /*
 **	@brief	movings player  left or right
-**	
+**
 **	@param	v		player sight vector
 **	@param	speed	player speed
 **	@param	row		new player y position
@@ -75,7 +75,7 @@ void	sideways_mov(t_vector *v, float speed, float *row, float *col)
 
 /*
 **	@brief	checks and moovings player to new position if its correct
-**	
+**
 **	@param	map		pointer to map
 **	@param	plr		the player structure
 **	@param	row		new player y position

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 18:42:33 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/06 22:50:33 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/07 13:18:46 by hmeriann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,7 @@
 
 void	ft_resol_check(t_p *p, t_data *img)
 {
-	// int	x;
-	// int	y;
-
-	// if (!p->save)
-	// {
-		// mlx_get_screen_size(&x, &y);
-		// p->res_x = ft_min(x, p->res_x);
-		// p->res_y = ft_min(y, p->res_y);
-	// }	
-	img->win = mlx_new_window(img->mlx, p->res_x, p->res_y, "Cub3D");
+	img->win = mlx_new_window(img->mlx, p->res_x, p->res_y, "cub3d");
 	if (!img->win)
 		ft_print_error("Cannot create game windows\n");
 	img->img = mlx_new_image(img->mlx, p->res_x, p->res_y);
