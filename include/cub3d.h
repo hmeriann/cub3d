@@ -6,7 +6,7 @@
 /*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 23:18:05 by zu                #+#    #+#             */
-/*   Updated: 2022/03/07 14:51:17 by jbasmati         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:53:20 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,9 +180,9 @@ void	ft_column(t_data *img, t_sprite *spr, int col, int i);
 
 /*rays.c*/
 void	ft_ray(t_data *img, t_vector vray);
-void	inicialise_first_dots(t_data *img, t_vector *vray, t_dot *dot_row,
+void	ft_init_dots(t_data *img, t_vector *vray, t_dot *dot_row,
 			t_dot *dot_col);
-void	get_next_cross(t_vector *vray, t_dot *dot, t_dot *d, int is_row);
+void	ft_next_cross(t_vector *vray, t_dot *dot, t_dot *d, int is_row);
 
 /*rayc_check.c*/
 int		ft_sell_x(t_data *img, t_vector *vray, t_dot *dot, int *i);

@@ -1,12 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rays.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/07 14:52:19 by jbasmati          #+#    #+#             */
+/*   Updated: 2022/03/07 14:53:20 by jbasmati         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/cub3d.h"
 
-/*
-**	@brief	'trows' ray of sight and get distance (and height)
-**			to cell with sprite and walls
-**
-**	@param	img		the mlx instance
-**	@param	vray	current ray vector
-*/
 void	ft_ray(t_data *img, t_vector vray)
 {
 	t_dot	dot;
@@ -14,35 +19,27 @@ void	ft_ray(t_data *img, t_vector vray)
 	t_dot	dot_col;
 	int		max_cross;
 
-	inicialise_first_dots(img, &vray, &dot_row, &dot_col);
+	ft_init_dots(img, &vray, &dot_row, &dot_col);
 	max_cross = 256;
 	while (--max_cross && img->plr->cnt_s < 200)
 	{
 		if (ft_dist(dot_row.x - img->plr->x, dot_row.y - img->plr->y)
 			< ft_dist(dot_col.x - img->plr->x, dot_col.y - img->plr->y))
 		{
-			get_next_cross(&vray, &dot, &dot_row, 1);
+			ft_next_cross(&vray, &dot, &dot_row, 1);
 			if (ft_sell_x(img, &vray, &dot, &img->plr->cnt_s))
 				break ;
 		}
 		else
 		{
-			get_next_cross(&vray, &dot, &dot_col, 0);
+			ft_next_cross(&vray, &dot, &dot_col, 0);
 			if (ft_cell_y(img, &vray, &dot, &img->plr->cnt_s))
 				break ;
 		}
 	}
 }
 
-/*
-**	@brief	initialises first intersection ray
-**
-**	@param	img			the mlx instance
-**	@param	vray		current ray vector
-**	@param	dot_row		intersection by vertical border
-**	@param	dot_col		intersection by horisontal border
-*/
-void	inicialise_first_dots(t_data *img, t_vector *vray,
+void	ft_init_dots(t_data *img, t_vector *vray,
 		t_dot *dot_row, t_dot *dot_col)
 {
 	img->plr->cnt_s = 0;
@@ -54,15 +51,7 @@ void	inicialise_first_dots(t_data *img, t_vector *vray,
 		* vray->rx * vray->ry;
 }
 
-/*
-**	@brief	Get the next ray and cell intersection
-**
-**	@param	vray	current ray vector
-**	@param	dot		the old point of cross borders between cells
-**	@param	d		the new point of cross borders between cells
-**	@param	is_row		1 if it's vertical border, else 0
-*/
-void	get_next_cross(t_vector *vray, t_dot *dot, t_dot *d, int is_row)
+void	ft_next_cross(t_vector *vray, t_dot *dot, t_dot *d, int is_row)
 {
 	dot->y = d->y;
 	dot->x = d->x;
