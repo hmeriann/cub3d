@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_5.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 18:33:38 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/07 13:17:58 by hmeriann         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:36:29 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	ft_draw(t_p *p, t_data *img)
 	i = 0;
 	col = 0;
 	while (i < p->res_y / 2)
-		my_mlx_row_put(img, i++, p->ceiling);
+		ft_put_row(img, i++, p->ceiling);
 	while (i < p->res_y)
-		my_mlx_row_put(img, i++, p->floor);
+		ft_put_row(img, i++, p->floor);
 	start_ind = img->plr->ind_v - p->res_x / 2;
 	if (start_ind < 0)
 		start_ind += p->cnt_v;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 23:18:05 by zu                #+#    #+#             */
-/*   Updated: 2022/03/07 13:18:13 by hmeriann         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:36:53 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,9 +191,9 @@ void	check_sprite_x(t_data *img, t_vector *vray, t_dot *dot, char cell);
 void	check_sprite_y(t_data *img, t_vector *vray, t_dot *dot, char cell);
 
 /*get_img_helpers.c*/
-void	my_mlx_pixel_put(t_data *img, int row, int col, int color);
-void	my_mlx_row_put(t_data *img, int row, int color);
-int		get_pixel(t_texture *xpm, int row_sp, float diff);
+void	ft_put_pixel(t_data *img, int row, int col, int color);
+void	ft_put_row(t_data *img, int row, int color);
+int		ft_get_pixel(t_texture *xpm, int row_sp, float diff);
 void	pe4em_vectora(t_data *img, t_p *p);
 
 /*hooks.c*/
@@ -220,7 +220,7 @@ void	ft_init_n_textures(t_data *img, t_p *p);
 void	ft_vector_make(t_data *img, t_p *p);
 void	ft_player_init(t_data *img, t_p *p, t_player *plr);
 void	fr_draw_0(t_p *p, t_data *img);
-int		get_pixel_img(t_data *img, int row, int col);
+int		ft_get_pixel_img(t_data *img, int row, int col);
 void	ft_bmp_create(t_data *img);
 void	ft_next(t_vector *vector, t_dot *dot, t_dot *dot_row);
 void	ft_buttons_n_window(t_data *img, t_button *btn, t_p *p);

@@ -40,9 +40,9 @@ void	draw_floor_and_cel(t_p *p, t_data *img)
 
 	i = 0;
 	while (i < p->res_y / 2)
-		my_mlx_row_put(img, i++, p->ceiling);
+		ft_put_row(img, i++, p->ceiling);
 	while (i < p->res_y)
-		my_mlx_row_put(img, i++, p->floor);
+		ft_put_row(img, i++, p->floor);
 }
 
 /**
@@ -72,13 +72,13 @@ void	put_column(t_data *img, t_sprite *spr, int col, int i)
 			up = ft_max(0, down);
 			down = ft_min(img->p->res_y, (img->p->res_y - spr[i].h) / 2
 					+ (row_sp + 1) * spr[i].h / xpm->h);
-			color = get_pixel(xpm, row_sp, spr[i].diff);
+			color = ft_get_pixel(xpm, row_sp, spr[i].diff);
 			if (down >= 0 && up < img->p->res_y
 				&& (i + 1 == img->plr->cnt_s
 					|| spr[i].h / 2 < img->p->res_y)
 				&& color != TRNS)
 				while (up < down)
-					my_mlx_pixel_put(img, up++, col, color);
+					ft_put_pixel(img, up++, col, color);
 		}
 	}
 }
