@@ -1,14 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mooving.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/07 14:47:28 by jbasmati          #+#    #+#             */
+/*   Updated: 2022/03/07 14:49:10 by jbasmati         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/cub3d.h"
 
-/*
-**	@brief	changes player position
-**
-**	@param	map		pointer to map
-**	@param	plr		player structure
-**	@param	btn		button structure
-**	@param	vs		vectors massive
-*/
-void	change_pos(char **map, t_player *plr, t_button *btn, t_vector *vs)
+void	ft_pos(char **map, t_player *plr, t_button *btn, t_vector *vs)
 {
 	float	row;
 	float	col;
@@ -16,24 +20,17 @@ void	change_pos(char **map, t_player *plr, t_button *btn, t_vector *vs)
 	row = plr->y;
 	col = plr->x;
 	if (btn->w && !btn->s)
-		forward_mov(&vs[plr->ind_v], plr->speed, &row, &col);
+		ft_forward(&vs[plr->ind_v], plr->speed, &row, &col);
 	if (btn->s && !btn->w)
-		forward_mov(&vs[plr->ind_v], -plr->speed, &row, &col);
+		ft_forward(&vs[plr->ind_v], -plr->speed, &row, &col);
 	if (btn->a && !btn->d)
-		sideways_mov(&vs[plr->ind_v], plr->speed, &row, &col);
+		ft_sideway(&vs[plr->ind_v], plr->speed, &row, &col);
 	if (btn->d && !btn->a)
-		sideways_mov(&vs[plr->ind_v], -plr->speed, &row, &col);
-	check_and_change(map, plr, row, col);
+		ft_sideway(&vs[plr->ind_v], -plr->speed, &row, &col);
+	ft_change(map, plr, row, col);
 }
 
-/*
-**	@brief	rotates player's view
-**
-**	@param	p		the structure with parametrs
-**	@param	plr		the player structure
-**	@param	btn		the buttons structure
-*/
-void	rotate_view(t_p *p, t_player *plr, t_button *btn)
+void	ft_view(t_p *p, t_player *plr, t_button *btn)
 {
 	if (btn->q && !btn->e)
 		plr->ind_v -= plr->rotate_speed;
@@ -45,43 +42,19 @@ void	rotate_view(t_p *p, t_player *plr, t_button *btn)
 		plr->ind_v += p->cnt_v;
 }
 
-/*
-**	@brief	movings player  forward or backward
-**
-**	@param	v		player sight vector
-**	@param	speed	player speed
-**	@param	row		new player y position
-**	@param	col		new player x position
-*/
-void	forward_mov(t_vector *v, float speed, float *row, float *col)
+void	ft_forward(t_vector *v, float speed, float *row, float *col)
 {
 	*row += v->y * speed;
 	*col += v->x * speed;
 }
 
-/*
-**	@brief	movings player  left or right
-**
-**	@param	v		player sight vector
-**	@param	speed	player speed
-**	@param	row		new player y position
-**	@param	col		new player x position
-*/
-void	sideways_mov(t_vector *v, float speed, float *row, float *col)
+void	ft_sideway(t_vector *v, float speed, float *row, float *col)
 {
 	*row -= v->x * speed;
 	*col += v->y * speed;
 }
 
-/*
-**	@brief	checks and moovings player to new position if its correct
-**
-**	@param	map		pointer to map
-**	@param	plr		the player structure
-**	@param	row		new player y position
-**	@param	col		new player x position
-*/
-void	check_and_change(char **map, t_player *plr, float row, float col)
+void	ft_change(char **map, t_player *plr, float row, float col)
 {
 	int	row2;
 	int	col2;

@@ -6,7 +6,7 @@
 /*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 23:18:05 by zu                #+#    #+#             */
-/*   Updated: 2022/03/07 14:45:30 by jbasmati         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:49:10 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,11 +205,11 @@ void	run_game(t_data *img);
 int		main_game(t_data *img);
 
 /*mooving.c*/
-void	change_pos(char **map, t_player *plr, t_button *btn, t_vector *vs);
-void	rotate_view(t_p *p, t_player *plr, t_button *btn);
-void	forward_mov(t_vector *v, float speed, float *row, float *col);
-void	sideways_mov(t_vector *v, float speed, float *row, float *col);
-void	check_and_change(char **map, t_player *plr, float row, float col);
+void	ft_pos(char **map, t_player *plr, t_button *btn, t_vector *vs);
+void	ft_view(t_p *p, t_player *plr, t_button *btn);
+void	ft_forward(t_vector *v, float speed, float *row, float *col);
+void	ft_sideway(t_vector *v, float speed, float *row, float *col);
+void	ft_change(char **map, t_player *plr, float row, float col);
 
 /*LOGIC*/
 void	ft_init_n_textures(t_data *img, t_p *p);
