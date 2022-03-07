@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 23:18:05 by zu                #+#    #+#             */
-/*   Updated: 2022/03/06 23:18:06 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/07 13:07:07 by hmeriann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,14 +184,14 @@ void	inicialise_first_dots(t_data *img, t_vector *vray, t_dot *dot_row,
 			t_dot *dot_col);
 void	get_next_cross(t_vector *vray, t_dot *dot, t_dot *d, int is_row);
 
-// rayc_check.c
+// // rayc_check.c
 int		check_cell_x(t_data *img, t_vector *vray, t_dot *dot, int *i);
 int		check_cell_y(t_data *img, t_vector *vray, t_dot *dot, int *i);
 void	check_sprite_x(t_data *img, t_vector *vray, t_dot *dot, char cell);
 void	check_sprite_y(t_data *img, t_vector *vray, t_dot *dot, char cell);
 
 // get_img_helpers.c
-int		create_trgb(int t, int r, int g, int b);
+// int		create_trgb(int t, int r, int g, int b);
 void	my_mlx_pixel_put(t_data *img, int row, int col, int color);
 void	my_mlx_row_put(t_data *img, int row, int color);
 int		get_pixel(t_texture *xpm, int row_sp, float diff);
@@ -204,7 +204,7 @@ int		release_button(int keycode, t_data *img);
 // game.c
 void	run_game(t_data *img);
 int		main_game(t_data *img);
-void	save_mode(t_data *img, t_p *p, t_player *plr);
+// void	save_mode(t_data *img, t_p *p, t_player *plr);
 
 // inicialize_struct.c
 void	inicialise_buttons(t_button *btn);
@@ -217,17 +217,13 @@ void	forward_mov(t_vector *v, float speed, float *row, float *col);
 void	sideways_mov(t_vector *v, float speed, float *row, float *col);
 void	check_and_change(char **map, t_player *plr, float row, float col);
 
-// save.c
+// // save.c
 void	ft_put_int(unsigned char *ch, int x);
-void	ft_bmp_header(t_data *img, int fd, int size);
-void	ft_bmp_put_pixels(t_data *img, int fd);
+// void	ft_bmp_header(t_data *img, int fd, int size);
+// void	ft_bmp_put_pixels(t_data *img, int fd);
 void	ft_save_bmp(t_data *img);
-int		get_pixel_img(t_data *img, int row, int col);
+// int		get_pixel_img(t_data *img, int row, int col);
 
-// minimap_bonus
-void	draw_player(t_p *p, t_data *img);
-void	draw_mmap(t_p *p, t_data	*img);
-void	draw_ray_of_sight(t_p *p, t_data *img);
 // NEW_FUNCTIONS
 void	ft_init_n_textures(t_data *img, t_p *p);
 void	ft_vector_make(t_data *img, t_p *p);

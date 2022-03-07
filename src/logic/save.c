@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   save.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 18:00:56 by pantigon          #+#    #+#             */
-/*   Updated: 2022/03/06 22:48:11 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/07 13:08:31 by hmeriann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 **	@brief	put type int to string by bytes
-**	
+**
 **	@param	ch		point to char
 **	@param	x		int
 */
@@ -28,7 +28,7 @@ void	ft_put_int(unsigned char *ch, int x)
 
 /*
 **	@brief	wrrite to file bpm header
-**	
+**
 **	@param	img		the mlx instance
 **	@param	fd		the bmp file destiptor
 **	@param	size	size of bmp file
@@ -52,7 +52,7 @@ void	ft_bmp_header(t_data *img, int fd, int size)
 
 /*
 **	@brief	Get the pixel img object
-**	
+**
 **	@param	img		the mlx instance
 **	@param	row		the row index
 **	@param	col		the column index
@@ -69,7 +69,7 @@ int	get_pixel_img(t_data *img, int row, int col)
 
 /*
 **	@brief	put img to bmp file
-**	
+**
 **	@param	img		the mlx instance
 **	@param	fd		the bmp file descriptor
 */
@@ -94,7 +94,7 @@ void	ft_bmp_put_pixels(t_data *img, int fd)
 
 /*
 **	@brief	save screenshot screen game to bmp file
-**	
+**
 **	@param	img		the mlx instance
 */
 void	ft_save_bmp(t_data *img)

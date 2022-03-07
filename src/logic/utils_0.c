@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_0.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 19:54:57 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/06 22:48:11 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/07 12:54:09 by hmeriann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ void	ft_player_init(t_data *img, t_p *p, t_player *plr)
 		plr->ind_v = p->cnt_v * 3 / 4;
 	plr->vx = img->v[plr->ind_v].x;
 	plr->vy = img->v[plr->ind_v].y;
-	if (DEBUG)
-		printf("Start pos x=%f, y=%f, rotate_speed=%d\n ind=%d\n",
-			plr->vx, plr->vy, plr->rotate_speed, plr->ind_v);
 }
 
 void	ft_rotate(t_data *img, double sin_step, double cos_step, int i)

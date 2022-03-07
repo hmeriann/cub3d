@@ -2,7 +2,7 @@
 
 /*
 **	@brief	inicialise the button's structure
-**	
+**
 **	@param	btn		the button's structure
 */
 void	inicialise_buttons(t_button *btn)
@@ -17,7 +17,7 @@ void	inicialise_buttons(t_button *btn)
 
 /*
 **	@brief	inicialises the player's structure
-**	
+**
 **	@param	img		the mlx instance
 **	@param	p		the structure of parameters
 **	@param	plr		the player's structure
@@ -40,7 +40,4 @@ void	initialise_player(t_data *img, t_p *p, t_player *plr)
 		plr->ind_v = p->cnt_v * 3 / 4;
 	plr->vx = img->v[plr->ind_v].x;
 	plr->vy = img->v[plr->ind_v].y;
-	if (DEBUG)
-		printf("Start pos x=%f, y=%f, rotate_speed=%d\n ind=%d\n",
-			plr->vx, plr->vy, plr->rotate_speed, plr->ind_v);
 }
