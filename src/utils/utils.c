@@ -1,12 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/07 14:28:42 by jbasmati          #+#    #+#             */
+/*   Updated: 2022/03/07 14:28:43 by jbasmati         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/cub3d.h"
 
-/*
-**	@brief	just return minimal from two elements
-**
-**	@param	a		DOC
-**	@param	b		DOC
-**	@return	int	first or second element
-*/
 int	ft_min(int a, int b)
 {
 	if (a > b)
@@ -33,7 +38,7 @@ float	ft_dist(float a, float b)
 	return (sqrt(a * a + b * b));
 }
 
-void	rotate_by_ange(double *x, double *y, double sin_a, double cos_a)
+void	ft_rotate_ange(double *x, double *y, double sin_a, double cos_a)
 {
 	double	copy_x;
 
