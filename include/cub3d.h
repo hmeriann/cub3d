@@ -6,7 +6,7 @@
 /*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 23:18:05 by zu                #+#    #+#             */
-/*   Updated: 2022/03/07 14:53:20 by jbasmati         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:55:51 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,9 +169,7 @@ void	ft_check_holes(t_p *p);
 
 /*window.c*/
 void	create_window(t_data *img, t_p *p, t_button *btn);
-int		close_win(t_data *img);
-void	correct_resolution(t_p *p);
-void	get_textures(t_data *img, t_texture *xpm, t_p *p);
+int		ft_win_close(t_data *img);
 
 /*get_img.c*/
 void	draw_floor_and_cel(t_p *p, t_data *img);

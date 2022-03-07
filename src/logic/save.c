@@ -6,21 +6,13 @@
 /*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 13:28:07 by hmeriann          #+#    #+#             */
-/*   Updated: 2022/03/07 14:36:53 by jbasmati         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:53:59 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../../include/cub3d.h"
 
-/*
-**	@brief	Get the pixel img object
-**
-**	@param	img		the mlx instance
-**	@param	row		the row index
-**	@param	col		the column index
-**	@return	int		color im TRGB format
-*/
 int	ft_get_pixel_img(t_data *img, int row, int col)
 {
 	int	*color;
@@ -30,12 +22,6 @@ int	ft_get_pixel_img(t_data *img, int row, int col)
 	return (*color);
 }
 
-/*
-**	@brief	put img to bmp file
-**
-**	@param	img		the mlx instance
-**	@param	fd		the bmp file descriptor
-*/
 void	ft_bmp_put_pixels(t_data *img, int fd)
 {
 	int	row;
