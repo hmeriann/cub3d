@@ -6,7 +6,7 @@
 /*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 23:18:05 by zu                #+#    #+#             */
-/*   Updated: 2022/03/07 14:41:22 by jbasmati         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:45:30 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,10 +203,6 @@ int		ft_release_button(int keycode, t_data *img);
 /*game.c*/
 void	run_game(t_data *img);
 int		main_game(t_data *img);
-
-/*inicialize_struct.c*/
-void	inicialise_buttons(t_button *btn);
-void	initialise_player(t_data *img, t_p *p, t_player *plr);
 
 /*mooving.c*/
 void	change_pos(char **map, t_player *plr, t_button *btn, t_vector *vs);

@@ -14,7 +14,6 @@ SRCS_FILES	= 	main.c \
 				logic/rays_checks.c \
 				logic/get_img.c \
 				logic/get_img_helpers.c \
-				logic/inicialise_structs.c \
 				logic/mooving.c \
 				logic/save.c \
 				utils/utils.c \
