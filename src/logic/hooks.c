@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hooks.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/07 14:41:26 by jbasmati          #+#    #+#             */
+/*   Updated: 2022/03/07 14:55:10 by jbasmati         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/cub3d.h"
 
-int	press_button(int keycode, t_data *img)
+int	ft_button(int keycode, t_data *img)
 {
 	if (keycode == KEY_ESC)
-		close_win(img);
+		ft_win_close(img);
 	else if (keycode == KEY_W)
 		img->btn->w = true;
 	else if (keycode == KEY_S)
@@ -19,10 +31,10 @@ int	press_button(int keycode, t_data *img)
 	return (0);
 }
 
-int	release_button(int keycode, t_data *img)
+int	ft_release_button(int keycode, t_data *img)
 {
 	if (keycode == KEY_ESC)
-		close_win(img);
+		ft_win_close(img);
 	else if (keycode == KEY_W)
 		img->btn->w = false;
 	else if (keycode == KEY_S)

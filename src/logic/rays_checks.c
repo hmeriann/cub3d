@@ -1,21 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rays_checks.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/07 14:50:07 by jbasmati          #+#    #+#             */
+/*   Updated: 2022/03/07 14:51:17 by jbasmati         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/cub3d.h"
 
-/*
-**	@brief	checks the cell of map and get dist(height) to cell
-**			if it's a sprite or a wall
-**	
-**	@param	img		the mlx instance
-**	@param	vray	current ray vector
-**	@param	dot		the point of cross vertical border between cells
-**	@param	i		the index of sprite
-**	@return	int		1 if it's wall, else 0
-*/
-int	check_cell_x(t_data *img, t_vector *vray, t_dot *dot, int *i)
+int	ft_sell_x(t_data *img, t_vector *vray, t_dot *dot, int *i)
 {
 	char	cell;
 
 	cell = img->p->map[(int)(dot->y)][(int)(dot->x + 0.0001 * vray->cx)];
-	check_sprite_x(img, vray, dot, cell);
+	ft_sprite_x(img, vray, dot, cell);
 	if (cell == '1')
 	{
 		if (vray->cx > 0)
@@ -29,16 +31,7 @@ int	check_cell_x(t_data *img, t_vector *vray, t_dot *dot, int *i)
 	return (cell == '1');
 }
 
-/*
-**	@brief	checks the cell of map and get dist(height) to cell
-**			if it's a sprite
-**	
-**	@param	img		the mlx instance
-**	@param	vray	current ray vector
-**	@param	dot		the point of cross horizontal border between cells
-**	@param	cell	the cell of the map
-*/
-void	check_sprite_x(t_data *img, t_vector *vray, t_dot *dot, char cell)
+void	ft_sprite_x(t_data *img, t_vector *vray, t_dot *dot, char cell)
 {
 	int	*i;
 
@@ -56,22 +49,12 @@ void	check_sprite_x(t_data *img, t_vector *vray, t_dot *dot, char cell)
 	}
 }
 
-/*
-**	@brief	checks the cell of map and get dist(height) to cell
-**			if it's a sprite or a wall
-**	
-**	@param	img		the mlx instance
-**	@param	vray	current ray vector
-**	@param	dot		the point of cross veticals border between cells
-**	@param	i		the index of sprite
-**	@return	int		1 if it's wall, else 0
-*/
-int	check_cell_y(t_data *img, t_vector *vray, t_dot *dot, int *i)
+int	ft_cell_y(t_data *img, t_vector *vray, t_dot *dot, int *i)
 {
 	char	cell;
 
 	cell = img->p->map[(int)(dot->y + 0.0001 * vray->ry)][(int)(dot->x)];
-	check_sprite_y(img, vray, dot, cell);
+	ft_sprite_y(img, vray, dot, cell);
 	if (cell == '1')
 	{
 		if (vray->ry > 0)
@@ -85,16 +68,7 @@ int	check_cell_y(t_data *img, t_vector *vray, t_dot *dot, int *i)
 	return (cell == '1');
 }
 
-/*
-**	@brief	checks the cell of map and get dist(height) to cell
-**			if it's a sprite
-**	
-**	@param	img		the mlx instance
-**	@param	vray	current ray vector
-**	@param	dot		the point of cross horizontal border between cells
-**	@param	cell	the cell of the map
-*/
-void	check_sprite_y(t_data *img, t_vector *vray, t_dot *dot, char cell)
+void	ft_sprite_y(t_data *img, t_vector *vray, t_dot *dot, char cell)
 {
 	int	*i;
 

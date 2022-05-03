@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_4.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 16:50:54 by jbasmati          #+#    #+#             */
-/*   Updated: 2022/03/06 22:48:11 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/07 14:51:05 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	ft_line_make_1(t_data *img, t_dot *dot_row, t_dot *dot_col, \
 			< ft_dist(dot_col->x - img->plr->x, dot_col->y - img->plr->y))
 		{
 			ft_next(vect, &dot, dot_row);
-			if (check_cell_x(img, vect, &dot, &img->plr->cnt_s))
+			if (ft_sell_x(img, vect, &dot, &img->plr->cnt_s))
 				break ;
 		}
 		else
 		{
 			ft_next(vect, &dot, dot_row);
-			if (check_cell_y(img, vect, &dot, &img->plr->cnt_s))
+			if (ft_cell_y(img, vect, &dot, &img->plr->cnt_s))
 				break ;
 			max_cross--;
 		}
@@ -78,7 +78,7 @@ void	ft_pix_draw(t_data *img, int down, t_texture *xpm, int row_sp)
 	i = 0;
 	up = ft_max(0, down);
 	col = 0;
-	color = get_pixel(xpm, row_sp, img->plr->sprite[img->plr->cnt_s].diff);
+	color = ft_get_pixel(xpm, row_sp, img->plr->sprite[img->plr->cnt_s].diff);
 	down = ft_min(img->p->res_y, (img->p->res_y - \
 		img->plr->sprite[img->plr->cnt_s].h) / 2
 			+ (row_sp + 1) * img->plr->sprite[img->plr->cnt_s].h / xpm->h);

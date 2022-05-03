@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parser.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zu <zu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: hmeriann <hmeriann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:22:24 by zu                #+#    #+#             */
-/*   Updated: 2022/03/06 23:15:00 by zu               ###   ########.fr       */
+/*   Updated: 2022/03/07 13:17:58 by hmeriann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	validate_args(int argc, char **argv)
 	int	len;
 
 	if (argc != 2)
-		ft_print_error("Cub3D accepts one map as an argument\n");
+		ft_print_error("cub3d accepts one map as an argument\n");
 	len = ft_strlen(argv[1]);
 	if (len < 4 || ft_strncmp(argv[1] + (len - 4), ".cub", 5))
 		ft_print_error("Filename doesnt end with .cub\n");

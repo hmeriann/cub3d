@@ -1,41 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   save.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbasmati <jbasmati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 13:28:07 by hmeriann          #+#    #+#             */
-/*   Updated: 2022/03/07 14:57:51 by jbasmati         ###   ########.fr       */
+/*   Created: 2022/03/07 14:28:42 by jbasmati          #+#    #+#             */
+/*   Updated: 2022/03/07 14:28:43 by jbasmati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-int	ft_get_pixel_img(t_data *img, int row, int col)
+int	ft_min(int a, int b)
 {
-	int	*color;
-
-	color = (int *)(img->addr + img->llen * row
-			+ (img->bpp / 8) * col);
-	return (*color);
+	if (a > b)
+		return (b);
+	return (a);
 }
 
-void	ft_bmp_put_pixels(t_data *img, int fd)
+int	ft_max(int a, int b)
 {
-	int	row;
-	int	col;
-	int	color;
+	if (a > b)
+		return (a);
+	return (b);
+}
 
-	row = img->p->res_y;
-	while (row--)
-	{
-		col = -1;
-		while (++col < img->p->res_x)
-		{
-			color = ft_get_pixel_img(img, row, col);
-			write(fd, &color, 3);
-		}
-		write(fd, "\0\0\0", col % 4);
-	}
+int	ft_abs(int a)
+{
+	if (a > 0)
+		return (a);
+	return (-a);
+}
+
+float	ft_dist(float a, float b)
+{
+	return (sqrt(a * a + b * b));
+}
+
+void	ft_rotate_ange(double *x, double *y, double sin_a, double cos_a)
+{
+	double	copy_x;
+
+	copy_x = *x;
+	*x = copy_x * cos_a - *y * sin_a;
+	*y = copy_x * sin_a + *y * cos_a;
 }
